@@ -63,21 +63,21 @@ const PrimaryAction = tw.button`px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm
 export default () => {
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="#">
+      <NavLink href="/">
         Service
       </NavLink>
-      <NavLink href="#">
+      <NavLink href="/tools">
         Webtool
       </NavLink>
-      <NavLink href="#">
+      <NavLink href="/column">
         Column
       </NavLink>
-      <NavLink href="#">
+      <NavLink href="/summary">
         Summary
       </NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      <PrimaryLink href="/#">
+      <PrimaryLink href="/contact">
         Contact
       </PrimaryLink>
     </NavLinks>

@@ -5,7 +5,9 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import Header from "components/headers/light.js";
-import Footer from "components/footers/FiveColumnWithInputForm.js";
+// import Footer from "components/footers/FiveColumnWithInputForm.js";
+import Footer from "components/footers/MiniCenteredFooter.js";
+
 import { SectionHeading } from "components/misc/Headings";
 
 const HeadingRow = tw.div`flex`;
@@ -35,7 +37,7 @@ const Text = styled.div`
   }
 `;
 
-export default ({ headingText = "Terms And Condition" }) => {
+export default ({ headingText = "Terms of Use" }) => {
   return (
     <AnimationRevealPage>
       <Header />
@@ -46,226 +48,203 @@ export default ({ headingText = "Terms And Condition" }) => {
           </HeadingRow>
           <Text>
 
-            <p>Last updated: April 21, 2048</p>
+            <p>この利用規約（以下「本規約」といいます。）は，SmallEight（以下「当社」といいます。）がこのウェブサイト上で提供するサービス（以下「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下「ユーザー」といいます。）には本規約に従って、本サービスをご利用いただきます。</p>
 
-            <p>Please read these terms and conditions carefully before using Our Service.</p>
-
-            <h1>Interpretation and Definitions</h1>
-            <h2>Interpretation</h2>
+            {/* <h1>Interpretation and Definitions</h1> */}
+            <h2>第1条（適用）</h2>
             <p>
-              The words of which the initial letter is capitalized have meanings defined under the following conditions.
+            本規約はユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
             </p>
             <p>
-              The following definitions shall have the same meaning regardless of whether they appear in singular or in
-              plural.
+            当社は本サービスに関し、本規約のほか、ご利用にあたってのルール等、各種の定め（以下「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。
+            </p>
+            <p>
+            本規約の規定が前条の個別規定の規定と矛盾する場合には、個別規定において特段の定めなき限り、個別規定の規定が優先されるものとします。
             </p>
 
-            <h2>Definitions</h2>
-            <p>For the purposes of these Terms and Conditions:</p>
+            <h2>第2条（利用登録）</h2>
+            <p>本サービスにおいては、登録希望者が本規約に同意の上、当社の定める方法によって利用登録を申請することによって，利用登録が完了するものとします。</p>
+            <p>当社は、利用登録の申請者に以下の事由があると判断した場合、利用登録の申請を承認しないことがあり、その理由については一切の開示義務を負わないものとします。</p>
             <ul>
               <li>
-                <strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control
-                with a party, where "control" means ownership of 50% or more of the shares, equity interest or other
-                securities entitled to vote for election of directors or other managing authority.
+              利用登録の申請に際して虚偽の事項を届け出た場合
               </li>
               <li>
-                <strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement)
-                refers to Treact Inc., Navi Mumbai.
+              本規約に違反したことがある者からの申請である場合
               </li>
               <li>
-                <strong>Country</strong> refers to: Maharashtra, India
-              </li>
-              <li>
-                <strong>Service</strong> refers to the Website.
-              </li>
-              <li>
-                <strong>Terms and Conditions</strong> (also referred as "Terms") mean these Terms and Conditions that
-                form the entire agreement between You and the Company regarding the use of the Service.
-              </li>
-              <li>
-                <strong>Third-party Social Media Service</strong> means any services or content (including data,
-                information, products or services) provided by a third-party that may be displayed, included or made
-                available by the Service.
-              </li>
-              <li>
-                <strong>Website</strong> refers to Treact, accessible from https://treact.com
-              </li>
-              <li>
-                <strong>You</strong> means the individual accessing or using the Service, or the company, or other legal
-                entity on behalf of which such individual is accessing or using the Service, as applicable.
+              その他，当社が利用登録を相当でないと判断した場合
               </li>
             </ul>
 
-            <h1>Acknowledgement</h1>
+            <h2>第3条（利用料金および支払方法）掲載事業者向け</h2>
             <p>
-              These are the Terms and Conditions governing the use of this Service and the agreement that operates
-              between You and the Company. These Terms and Conditions set out the rights and obligations of all users
-              regarding the use of the Service.
+            ユーザーは、本サービスの有料部分の対価として、当社が別途定め、本ウェブサイトに表示する利用料金を、当社が指定する方法により支払うものとします。
             </p>
             <p>
-              Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms
-              and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the
-              Service.
-            </p>
-            <p>
-              By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree
-              with any part of these Terms and Conditions then You may not access the Service.
-            </p>
-            <p>
-              You represent that you are over the age of 18. The Company does not permit those under 18 to use the
-              Service.
-            </p>
-            <p>
-              Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the
-              Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection,
-              use and disclosure of Your personal information when You use the Application or the Website and tells You
-              about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before
-              using Our Service.
+            ユーザーが利用料金の支払を遅滞した場合には，ユーザーは年14．6％の割合による遅延損害金を支払うものとします。
             </p>
 
-            <h1>Links to Other Websites</h1>
+            <h2>第4条（禁止事項）</h2>
             <p>
-              Our Service may contain links to third-party web sites or services that are not owned or controlled by the
-              Company.
+            ユーザーは，本サービスの利用にあたり，以下の行為をしてはなりません。
             </p>
-            <p>
-              The Company has no control over, and assumes no responsibility for, the content, privacy policies, or
-              practices of any third party web sites or services. You further acknowledge and agree that the Company
-              shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be
-              caused by or in connection with the use of or reliance on any such content, goods or services available on
-              or through any such web sites or services.
-            </p>
-            <p>
-              We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites
-              or services that You visit.
-            </p>
-
-            <h1>Termination</h1>
-            <p>
-              We may terminate or suspend Your access immediately, without prior notice or liability, for any reason
-              whatsoever, including without limitation if You breach these Terms and Conditions.
-            </p>
-            <p>Upon termination, Your right to use the Service will cease immediately.</p>
-
-            <h1>Limitation of Liability</h1>
-            <p>
-              Notwithstanding any damages that You might incur, the entire liability of the Company and any of its
-              suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be
-              limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased
-              anything through the Service.
-            </p>
-            <p>
-              To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be
-              liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not
-              limited to, damages for loss of profits, loss of data or other information, for business interruption, for
-              personal injury, loss of privacy arising out of or in any way related to the use of or inability to use
-              the Service, third-party software and/or third-party hardware used with the Service, or otherwise in
-              connection with any provision of this Terms), even if the Company or any supplier has been advised of the
-              possibility of such damages and even if the remedy fails of its essential purpose.
-            </p>
-            <p>
-              Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or
-              consequential damages, which means that some of the above limitations may not apply. In these states, each
-              party's liability will be limited to the greatest extent permitted by law.
-            </p>
-
-            <h1>"AS IS" and "AS AVAILABLE" Disclaimer</h1>
-            <p>
-              The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty
-              of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on
-              behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims
-              all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including
-              all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement,
-              and warranties that may arise out of course of dealing, course of performance, usage or trade practice.
-              Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no
-              representation of any kind that the Service will meet Your requirements, achieve any intended results, be
-              compatible or work with any other software, applications, systems or services, operate without
-              interruption, meet any performance or reliability standards or be error free or that any errors or defects
-              can or will be corrected.
-            </p>
-            <p>
-              Without limiting the foregoing, neither the Company nor any of the company's provider makes any
-              representation or warranty of any kind, express or implied: (i) as to the operation or availability of the
-              Service, or the information, content, and materials or products included thereon; (ii) that the Service
-              will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information
-              or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails
-              sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware,
-              timebombs or other harmful components.
-            </p>
-            <p>
-              Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable
-              statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to
-              You. But in such a case the exclusions and limitations set forth in this section shall be applied to the
-              greatest extent enforceable under applicable law.
-            </p>
-
-            <h1>Governing Law</h1>
-            <p>
-              The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the
-              Service. Your use of the Application may also be subject to other local, state, national, or international
-              laws.
-            </p>
-
-            <h1>Disputes Resolution</h1>
-            <p>
-              If You have any concern or dispute about the Service, You agree to first try to resolve the dispute
-              informally by contacting the Company.
-            </p>
-
-            <h1>For European Union (EU) Users</h1>
-            <p>
-              If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the
-              country in which you are resident in.
-            </p>
-
-            <h1>United States Legal Compliance</h1>
-            <p>
-              You represent and warrant that (i) You are not located in a country that is subject to the United States
-              government embargo, or that has been designated by the United States government as a “terrorist
-              supporting” country, and (ii) You are not listed on any United States government list of prohibited or
-              restricted parties.
-            </p>
-
-            <h1>Severability and Waiver</h1>
-            <h2>Severability</h2>
-            <p>
-              If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and
-              interpreted to accomplish the objectives of such provision to the greatest extent possible under
-              applicable law and the remaining provisions will continue in full force and effect.
-            </p>
-
-            <h2>Waiver</h2>
-            <p>
-              Except as provided herein, the failure to exercise a right or to require performance of an obligation
-              under this Terms shall not effect a party's ability to exercise such right or require such performance at
-              any time thereafter nor shall be the waiver of a breach constitute a waiver of any subsequent breach.
-            </p>
-
-            <h1>Translation Interpretation</h1>
-            <p>
-              These Terms and Conditions may have been translated if We have made them available to You on our Service.
-            </p>
-            <p>You agree that the original English text shall prevail in the case of a dispute.</p>
-
-            <h1>Changes to These Terms and Conditions</h1>
-            <p>
-              We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision
-              is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms
-              taking effect. What constitutes a material change will be determined at Our sole discretion.
-            </p>
-            <p>
-              By continuing to access or use Our Service after those revisions become effective, You agree to be bound
-              by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the
-              website and the Service.
-            </p>
-
-            <h1>Contact Us</h1>
-            <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
-
             <ul>
-              <li>By email: support@example.com</li>
-              <li>By phone number: 408.996.1010</li>
+              <li>
+              法令または公序良俗に違反する行為
+              </li>
+              <li>
+              犯罪行為に関連する行為
+              </li>
+              <li>
+              本サービスの内容等、本サービスに含まれる著作権、商標権ほか知的財産権を侵害する行為
+              </li>
+              <li>
+              当社、ほかのユーザー、またはその他第三者のサーバーまたはネットワークの機能を破壊したり、妨害したりする行為
+              </li>
+              <li>
+              本サービスによって得られた情報を商業的に利用する行為
+              </li>
+              <li>
+              当社のサービスの運営を妨害するおそれのある行為
+              </li>
+              <li>
+              不正アクセスをし、またはこれを試みる行為
+              </li>
+              <li>
+              他のユーザーに関する個人情報等を収集または蓄積する行為
+              </li>
+              <li>
+              不正な目的を持って本サービスを利用する行為
+              </li>
+              <li>
+              本サービスの他のユーザーまたはその他の第三者に不利益、損害、不快感を与える行為
+              </li>
+              <li>
+              他のユーザーに成りすます行為
+              </li>
+              <li>
+              当社が許諾しない本サービス上での宣伝、広告、勧誘、または営業行為
+              </li>
+              <li>
+              当社のサービスに関連して、反社会的勢力に対して直接または間接に利益を供与する行為
+              </li>
+              <li>
+              その他、当社が不適切と判断する行為
+              </li>
             </ul>
+
+            <h2>第5条（本サービスの提供の停止等）</h2>
+            <p>
+            当社は、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
+            </p>
+            <ul>
+              <li>
+              本サービスにかかるコンピュータシステムの保守点検または更新を行う場合
+              </li>
+              <li>
+              地震，落雷，火災，停電または天災などの不可抗力により、本サービスの提供が困難となった場合
+              </li>
+              <li>
+              コンピュータまたは通信回線等が事故により停止した場合
+              </li>
+              <li>
+              その他，当社が本サービスの提供が困難と判断した場合
+              </li>
+            </ul>
+            <p>
+            当社は、本サービスの提供の停止または中断により、ユーザーまたは第三者が被ったいかなる不利益または損害についても、一切の責任を負わないものとします。
+            </p>
+
+            <h2>第6条（利用制限および登録抹消）</h2>
+            <p>
+            当社は、ユーザーが以下のいずれかに該当する場合には、事前の通知なくユーザーに対して本サービスの全部もしくは一部の利用を制限し、またはユーザーとしての登録を抹消することができるものとします。
+            </p>
+            <ul>
+              <li>
+              本規約のいずれかの条項に違反した場合
+              </li>
+              <li>
+              登録事項に虚偽の事実があることが判明した場合
+              </li>
+              <li>
+              料金等の支払債務の不履行があった場合
+              </li>
+              <li>
+              当社からの連絡に対し、一定期間返答がない場合
+              </li>
+              <li>
+              その他，当社が本サービスの利用を適当でないと判断した場合
+              </li>
+            </ul>
+            <p>
+            当社は、本条に基づき当社が行った行為によりユーザーに生じた損害について、一切の責任を負いません。
+            </p>
+            
+            <h2>第7条（保証の否認および免責事項）</h2>
+            <p>
+            当社は、本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。
+            </p>
+            <p>
+            当社は、本サービスに起因してユーザーに生じたあらゆる損害について、当社の故意又は重過失による場合を除き、一切の責任を負いません。ただし、本サービスに関する当社とユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合、この免責規定は適用されません。
+            </p>
+            <p>
+            前項ただし書に定める場合であっても、当社は当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（当社またはユーザーが損害発生につき予見し、または予見し得た場合を含みます。）について一切の責任を負いません。また、当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は、ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。
+            </p>
+            <p>
+            当社は、本サービスに関して、ユーザーと他のユーザーまたは第三者との間において生じた取引、連絡または紛争等について一切責任を負いません。
+            </p>
+
+            <h2>第8条（サービス内容の変更等）</h2>
+            <p>
+            当社は、ユーザーへの事前の告知をもって、本サービスの内容を変更、追加または廃止することがあり、ユーザーはこれを承諾するものとします。
+            </p>
+
+            <h2>第9条（利用規約の変更）</h2>
+            <p>
+            当社は以下の場合には、ユーザーの個別の同意を要せず、本規約を変更することができるものとします。
+            </p>
+            <ul>
+              <li>
+              本規約の変更がユーザーの一般の利益に適合するとき
+              </li>
+              <li>
+              本規約の変更が本サービス利用契約の目的に反せず、かつ、変更の必要性、変更後の内容の相当性その他の変更に係る事情に照らして合理的なものであるとき
+              </li>
+            </ul>
+            <p>
+            当社はユーザーに対し、前項による本規約の変更にあたり、事前に本規約を変更する旨及び変更後の本規約の内容並びにその効力発生時期を通知します。
+            </p>
+
+            <h2>第10条（個人情報の取扱い）</h2>
+            <p>
+            当社は、本サービスの利用によって取得する個人情報については「プライバシーポリシー」に従い適切に取り扱うものとします。
+            </p>
+
+            <h2>第11条（通知または連絡）</h2>
+            <p>
+            ユーザーと当社との間の通知または連絡は、当社の定める方法によって行うものとします。当社は、ユーザーから当社が別途定める方式に従った変更届け出がない限り、現在登録されている連絡先が有効なものとみなして当該連絡先へ通知または連絡を行い、これらは発信時にユーザーへ到達したものとみなします。
+            </p>
+
+            <h2>第12条（権利義務の譲渡の禁止）</h2>
+            <p>
+            ユーザーは、当社の書面による事前の承諾なく、利用契約上の地位または本規約に基づく権利もしくは義務を第三者に譲渡し、または担保に供することはできません。
+            </p>
+
+            <h2>第13条（準拠法・裁判管轄）</h2>
+            <p>
+            本規約の解釈にあたっては、日本法を準拠法とします。
+            </p>
+            <p>
+            本サービスに関して紛争が生じた場合には、東京地方裁判所又は東京簡易裁判所を第一審の専属的合意管轄裁判所とします。
+            </p>
+
+            <br/>
+            <p>
+            以上
+            </p>
+            <br/><br/>
+            <p>制定日：令和6年04月01日</p>
           </Text>
         </ContentWithPaddingXl>
       </Container>

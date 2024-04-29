@@ -107,6 +107,11 @@ import ThankYouPage from "ThankYouPage.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AgencyLandingPage from "demos/AgencyLandingPage";
 import EventLandingPage from "demos/EventLandingPage";
+import ColumnPage from "pages/ColumnPage";
+import PrivacyPolicy from "pages/PrivacyPolicy";
+import TermsOfService from "pages/TermsOfService";
+import SummaryPage from "pages/SummaryPage";
+import ContactUs from "pages/ContactUs";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -122,7 +127,12 @@ export default function App() {
           <Route path="/components/:type/:name" element={<ComponentRenderer />} />
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/" element={<AgencyLandingPage />} /> 
-          <Route path="/tools" element={<EventLandingPage />} /> 
+          <Route path="/column" element={<ColumnPage />} /> 
+          <Route path="/summary" element={<SummaryPage />} /> 
+          <Route path="/privacy" element={<PrivacyPolicy />} /> 
+          <Route path="/terms" element={<TermsOfService />} /> 
+          <Route path="/contact" element={<ContactUs />} /> 
+          {/* <Route path="/tools" element={<PrivacyPolicy />} />  */}
         </Routes>
       </Router>
     </>

@@ -26,7 +26,10 @@ const Heading = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4x
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 
 const Form = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
-const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
+const Label = tw.label`md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
+const Input = tw.input`mb-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
+const Select = tw.select`mb-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
+const Required= tw.span`bg-primary-500 text-sm text-white rounded px-1 mx-1`
 const Textarea = styled(Input).attrs({as: "textarea"})`
   ${tw`h-24`}
 `
@@ -34,12 +37,8 @@ const Textarea = styled(Input).attrs({as: "textarea"})`
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
 export default ({
-  subheading = "Contact Us",
-  heading = <>Feel free to <span tw="text-primary-500">get in touch</span><wbr/> with us.</>,
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  heading = <>お問い合わせ</>,
   submitButtonText = "Send",
-  formAction = "#",
-  formMethod = "get",
   textOnLeft = true,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
@@ -52,14 +51,23 @@ export default ({
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
-            {subheading && <Subheading>{subheading}</Subheading>}
             <Heading>{heading}</Heading>
-            {description && <Description>{description}</Description>}
-            <Form action={formAction} method={formMethod}>
-              <Input type="email" name="email" placeholder="Your Email Address" />
-              <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="subject" placeholder="Subject" />
-              <Textarea name="message" placeholder="Your Message Here" />
+            <Form>
+              <Label>お問い合わせ種類<Required>必須</Required></Label>
+              <Select name="kind">
+                <option value="Mitsukeについて">スモハチツールについて</option>
+                <option value="Small Eightについて">デジタルマーケティング支援について</option>
+                <option value="Small Eightについて">LP、 サイト制作支援について</option>
+                <option value="その他">その他</option>
+              </Select>
+              <Label>会社名<Required>必須</Required></Label>
+              <Input type="text" name="company" placeholder="株式会社○○" />
+              <Label>お名前<Required>必須</Required></Label>
+              <Input type="text" name="subject" placeholder="田中 太郎" />
+              <Label>メールアドレス<Required>必須</Required></Label>
+              <Input type="email" name="subject" placeholder="ビジネス用メールアドレスを入力ください。" />
+              <Label>問い合わせ内容<Required>必須</Required></Label>
+              <Textarea maxLength={1000} name="contents" placeholder="恐れ入りますが、 お問い合わせにご対応しかねる場合がございます。 あらかじめご了承ください。" />
               <SubmitButton type="submit">{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>

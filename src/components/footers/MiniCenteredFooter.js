@@ -2,7 +2,7 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import {Container as ContainerBase } from "components/misc/Layouts.js"
-import logo from "../../images/logo.svg";
+import logo from "../../images/logo.png";
 import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
@@ -36,15 +36,15 @@ export default () => {
         <Row>
           <LogoContainer>
             <LogoImg src={logo} />
-            <LogoText>Treact</LogoText>
+            <LogoText>SmallEight</LogoText>
           </LogoContainer>
           <LinksContainer>
             <Link href="#">Service</Link>
-            <Link href="#">Webtool</Link>
-            <Link href="#">Column</Link>
-            <Link href="#">Summary</Link>
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Terms of Use</Link>
+            <Link href="/tools">Webtool</Link>
+            <Link href="/column">Column</Link>
+            <Link href="/summary">Summary</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Use</Link>
           </LinksContainer>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">

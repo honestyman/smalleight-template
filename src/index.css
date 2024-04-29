@@ -1,0 +1,22 @@
+
+@font-face {
+  font-family: NotoSansJP-Black;
+  src: url('../public/assets/NotoSansJP-Black.otf');
+}
+@font-face {
+  font-family: NotoSansJP-Light;
+  src: url('../public/assets/NotoSansJP-Light.otf');
+}
+@font-face {
+  font-family: NotoSansJP-Bold;
+  src: url('../public/assets/NotoSansJP-Bold.otf');
+}
+@font-face {
+  font-family: NotoSansJP-Medium;
+  src: url('../public/assets/NotoSansJP-Medium.otf');
+}
+@font-face {
+  font-family: NotoSansJP-Regular;
+  src: url('../public/assets/NotoSansJP-Regular.otf');
+}
+

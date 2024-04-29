@@ -112,6 +112,7 @@ import PrivacyPolicy from "pages/PrivacyPolicy";
 import TermsOfService from "pages/TermsOfService";
 import SummaryPage from "pages/SummaryPage";
 import ContactUs from "pages/ContactUs";
+import ColumnDetailPage from "pages/ColumnDetailPage";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -128,6 +129,7 @@ export default function App() {
           <Route path="/thank-you" element={<ThankYouPage />} />
           <Route path="/" element={<AgencyLandingPage />} /> 
           <Route path="/column" element={<ColumnPage />} /> 
+          <Route path='/columndetail/:id' element={<ColumnDetailPage/>}/>
           <Route path="/summary" element={<SummaryPage />} /> 
           <Route path="/privacy" element={<PrivacyPolicy />} /> 
           <Route path="/terms" element={<TermsOfService />} /> 

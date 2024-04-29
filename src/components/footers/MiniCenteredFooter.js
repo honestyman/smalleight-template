@@ -39,7 +39,7 @@ export default () => {
             <LogoText>SmallEight</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link href="#">Service</Link>
+            <Link href="/">Service</Link>
             <Link href="/tools">Webtool</Link>
             <Link href="/column">Column</Link>
             <Link href="/summary">Summary</Link>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -8,15 +8,17 @@ import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { Link } from "react-router-dom";
 
+import { useDispatch, useSelector } from "react-redux";
+import { getColumnList } from "../../redux/slice/columnSlice";
 
-const Row = tw.div`flex flex-col lg:flex-row -mb-10`;
+const Row = tw.div`flex flex-col lg:flex-row lg:flex-wrap -mb-10`;
 const Heading = tw(SectionHeading)`text-left lg:text-4xl xl:text-5xl`;
 
 const PopularPostsContainer = tw.div`lg:w-full`;
 const PostsContainer = tw.div`mt-12 flex flex-col sm:flex-row sm:justify-between lg:justify-start`;
 const ViewMoreDiv =tw.div`w-full flex items-center pt-20 justify-center`
 
-const Post = tw(motion.a)`block sm:max-w-sm cursor-pointer mb-16 last:mb-0 sm:mb-0 sm:odd:mr-8 lg:mr-8 xl:mr-16`;
+const Post = tw(motion.div)`block sm:max-w-sm cursor-pointer mb-16 last:mb-0 sm:mb-0 sm:odd:mr-8 lg:mr-8 xl:mr-16`;
 const Image = styled(motion.div)(props => [
   `background-image: url("${props.$imageSrc}");`,
   tw`h-64 bg-cover bg-center rounded`
@@ -53,7 +55,17 @@ const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block m
 // const PostTextContainer = tw.div``
 
 export default () => {
+  const dispatch = useDispatch();
+  const  {allColumnList } = useSelector(state => state.columns);
   // This setting is for animating the post background image on hover
+  useEffect(()=>{
+    dispatch(getColumnList());
+  },[]);
+
+  useEffect(()=>{
+    console.log(allColumnList);
+  },[allColumnList])
+
   const postBackgroundSizeAnimation = {
     rest: {
       backgroundSize: "100%"
@@ -136,13 +148,16 @@ export default () => {
           <PopularPostsContainer>
             <Heading>Column</Heading>
             <PostsContainer>
-              {popularPosts.map((post, index) => (
-                <Post key={index} href={post.url} className="group" initial="rest" whileHover="hover" animate="rest">
-                  <Image
+              {(allColumnList.slice(0,3)).map((post, index) => (
+                <Post key={index} className="group" initial="rest" whileHover="hover" animate="rest">
+                  {
+                     post.thumbnail && <Image
                     transition={{ duration: 0.3 }}
                     variants={postBackgroundSizeAnimation}
-                    $imageSrc={post.postImageSrc}
+                    $imageSrc={`${process.env.REACT_APP_BASE_URL}/img/${post.thumbnail}`}
                   />
+                  }
+                  
                   <Title>{post.title}</Title>
                   <Description>{post.description}</Description>
                   {/* <AuthorInfo>

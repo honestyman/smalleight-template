@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -6,7 +7,6 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading } from "components/misc/Headings.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getColumnList } from "../../redux/slice/columnSlice";
@@ -56,6 +56,7 @@ const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block m
 
 export default () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const  {allColumnList } = useSelector(state => state.columns);
   // This setting is for animating the post background image on hover
   useEffect(()=>{
@@ -75,72 +76,11 @@ export default () => {
     }
   };
 
+  const moveDetail=(id)=>{
+    navigate("/columndetail/"+id);
+  }
+
   //Recommended: Only 2 Items
-  const popularPosts = [
-    {
-      postImageSrc:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
-      // authorImageSrc:
-      //   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
-      title: "Tips on how to travel safely in foreign countries",
-      description:
-        "Lorem ipsum dolor sit amet, consecteturious adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua now ele.",
-      // authorName: "Charlotte Delos",
-      // authorProfile: "Travel Advocate",
-      url: "https://timerse.com"
-    },
-    {
-      postImageSrc:
-        "https://images.unsplash.com/photo-1563784462041-5f97ac9523dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=640&q=80",
-      // authorImageSrc:
-      //   "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=512&h=512&q=80",
-      title: "Enjoying the beach life while on a vacation",
-      description:
-        "Lorem ipsum dolor sit amet, consecteturious adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua now ele.",
-      // authorName: "Adam Cuppy",
-      // authorProfile: "Vlogger",
-      url: "https://reddit.com"
-    }
-  ];
-
-  // const recentPosts = [
-  //   {
-  //     postImageSrc:
-  //       "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-  //     title: "Getting the most out of your vacation",
-  //     authorName: "Aaron Patterson",
-  //     url: "https://reddit.com"
-  //   },
-  //   {
-  //     postImageSrc:
-  //       "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-  //     title: "Choosing the perfect Safaris in Africa",
-  //     authorName: "Sam Phipphen",
-  //     url: "https://reddit.com"
-  //   },
-  //   {
-  //     postImageSrc:
-  //       "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-  //     title: "Hiking during the monsoon in Asia",
-  //     authorName: "Tony Hawk",
-  //     url: "https://timerse.com"
-  //   },
-  //   {
-  //     postImageSrc:
-  //       "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&q=80",
-  //     title: "Must carry items while travelling to Thailand",
-  //     authorName: "Himali Turn",
-  //     url: "https://timerse.com"
-  //   },
-  //   {
-  //     postImageSrc:
-  //       "https://images.unsplash.com/photo-1546971587-02375cbbdade?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=641&q=80",
-  //     title: "An extremely funny trip to the Swiss Alps",
-  //     authorName: "Naomi Watts",
-  //     url: "https://timerse.com"
-  //   },
-  // ]
-
   return (
     <Container>
       <ContentWithPaddingXl>
@@ -149,7 +89,7 @@ export default () => {
             <Heading>Column</Heading>
             <PostsContainer>
               {(allColumnList.slice(0,3)).map((post, index) => (
-                <Post key={index} className="group" initial="rest" whileHover="hover" animate="rest">
+                <Post key={index} className="group" initial="rest" whileHover="hover" animate="rest" onClick={()=>moveDetail(post.id)}>
                   {
                      post.thumbnail && <Image
                     transition={{ duration: 0.3 }}

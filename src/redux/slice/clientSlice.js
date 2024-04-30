@@ -20,6 +20,7 @@ export const getClientList = createAsyncThunk(
 export const postQuery = createAsyncThunk(
   "postquery/clients",
   async (payload) => {
+    console.log(payload);
     const { name, email } = payload;
     const secretKey = process.env.REACT_APP_SECRETKEY;
 

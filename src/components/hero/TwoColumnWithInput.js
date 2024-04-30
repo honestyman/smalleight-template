@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+
 import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
@@ -44,8 +45,22 @@ const CustomersLogoStrip = styled.div`
     ${tw`mt-4 w-full lg:pr-16 xl:pr-32 opacity-50`}
   }
 `;
+const Form = tw.div`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
+const Label = tw.label`md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
+const Input = tw.input`mb-3 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
+const ResultLabel = tw.label`md:text-left mt-10 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 
+const Required= tw.span`bg-primary-500 text-sm text-white rounded px-1 mx-1`
+
+const Result = tw.div`mb-3 first:mt-0 h-24 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`;
+const ResultText = tw.p`break-words`;
 export default ({ roundedHeaderButton }) => {
+  const [url, setUrl] = useState("");
+  const [campaignSource, setCampaignSource] = useState("");
+  const [campaignMedium, setCampaignMedium] = useState("");
+  const [campaignName, setCampaignName] = useState("");
+  const [campaignContent, setCampaignContent] = useState("");
+  const [campaignTerm, setCampaignTerm] = useState("");
   return (
     <>
       <Header roundedHeaderButton={roundedHeaderButton} />
@@ -53,20 +68,33 @@ export default ({ roundedHeaderButton }) => {
         <TwoColumn>
           <LeftColumn>
             <Heading>
-              Beautiful React Templates <span tw="text-primary-500">for you.</span>
+              <span tw="text-primary-500 mr-3">{`{#}`}</span>UTMパラメータ生成
             </Heading>
             <Paragraph>
-              Our templates are easy to setup, understand and customize. Fully modular components with a variety of
-              pages and components.
+            下記に必要な情報を入れるだけで広告などに付与するUTM パラメータを生成できます。
             </Paragraph>
-            <Actions>
-              <input type="text" placeholder="Your E-mail Address" />
-              <button>Get Started</button>
-            </Actions>
-            <CustomersLogoStrip>
-              <p>Our TRUSTED Customers</p>
-              <img src={CustomersLogoStripImage} alt="Our Customers" />
-            </CustomersLogoStrip>
+            <Form>
+              {/* <Valid>{validQueryKind !="" && validQueryKind}</Valid> */}
+              <Label>(1) WEBサイトURLを入力してください<Required>必須</Required></Label>
+              <Input type="text" name="url" placeholder="例) https://smalleight.jp/" value={url} onChange={(e)=>setUrl(e.target.value)}/>
+              {/* <Valid>{validCompanyName !="" && validCompanyName}</Valid> */}
+              <Label>(2) キャンペーンのソース(参照元)を入力してください<Required>必須</Required></Label>
+              <Input type="text" name="campaignSource" placeholder="例) google" value={campaignSource} onChange={(e)=>setCampaignSource(e.target.value)}/>
+              {/* <Valid>{validClientName !="" && validClientName}</Valid> */}
+              <Label>(3) キャンペーンのメディアを入力してください<Required>必須</Required></Label>
+              <Input type="email" name="campaignMedia" placeholder="例) cpc" value={campaignMedium} onChange={(e)=>setCampaignMedium(e.target.value)}/>
+              {/* <Valid>{validClientEmail !="" && validClientEmail}</Valid> */}
+              <Label>(4) キャンペーン名を入力してください<Required>必須</Required></Label>
+              <Input type="email" name="campaignMedia" placeholder="例) brand" value={campaignName} onChange={(e)=>setCampaignName(e.target.value)}/>
+              <Label>(5) キャンペーンのコンテンツを入力してください (任意)</Label>
+              <Input type="email" name="campaignContent" placeholder="例) summer_event" value={campaignContent} onChange={(e)=>setCampaignContent(e.target.value)}/>
+              <Label>(6) キャンペーンのキーワードを入力してください (任意)</Label>
+              <Input type="email" name="campaignTerm" placeholder="例) shirt、 {keyword} など" value={campaignTerm} onChange={(e)=>setCampaignTerm(e.target.value)}/>
+              <ResultLabel>生成結果</ResultLabel>
+              <Result>
+                <ResultText>{url && <span>{url}</span>}{url && campaignSource && <span>?utm_source={campaignSource}</span>}{url && campaignSource && campaignMedium && <span>&utm_medium={campaignMedium}</span>}{url && campaignSource && campaignMedium && campaignName && <span>&utm_campaign={campaignName}</span>}{url && campaignSource && campaignMedium && campaignName && campaignContent && <span>&utm_content={campaignContent}</span>}{url && campaignSource && campaignMedium && campaignName && campaignTerm && <span>&utm_term={campaignTerm}</span>}</ResultText>
+              </Result>
+              </Form>
           </LeftColumn>
           <RightColumn>
             <IllustrationContainer>

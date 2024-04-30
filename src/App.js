@@ -113,6 +113,9 @@ import TermsOfService from "pages/TermsOfService";
 import SummaryPage from "pages/SummaryPage";
 import ContactUs from "pages/ContactUs";
 import ColumnDetailPage from "pages/ColumnDetailPage";
+import QueryThankYouPage from "pages/QueryThankYouPage";
+import WebTool from "pages/WebTool";
+import CreateParameter from "pages/CreateParameter";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -126,8 +129,10 @@ export default function App() {
         <Routes>
           <Route path="/components/:type/:subtype/:name" element={<ComponentRenderer />} />
           <Route path="/components/:type/:name" element={<ComponentRenderer />} />
-          <Route path="/thank-you" element={<ThankYouPage />} />
+          <Route path="/inquerythanks" element={<QueryThankYouPage />} />
           <Route path="/" element={<AgencyLandingPage />} /> 
+          <Route path="/tools" element={<WebTool />} /> 
+          <Route path="tools/create-param" element={<CreateParameter />} /> 
           <Route path="/column" element={<ColumnPage />} /> 
           <Route path='/columndetail/:id' element={<ColumnDetailPage/>}/>
           <Route path="/summary" element={<SummaryPage />} /> 

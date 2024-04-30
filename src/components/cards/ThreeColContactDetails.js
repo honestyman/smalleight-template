@@ -14,7 +14,7 @@ const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
 `;
 const Subheading = tw(SubheadingBase)`mb-4`;
-const Heading = tw(SectionHeading)`w-full`;
+const Heading = tw(SectionHeading)`w-full text-primary-500`;
 const Description = tw(SectionDescription)`w-full text-left`;
 
 const VerticalSpacer = tw.div`mt-10 w-full`

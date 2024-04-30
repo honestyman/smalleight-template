@@ -6,6 +6,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
 import { ConfettiButton } from "components/misc/Buttons.js";
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none`}
@@ -96,7 +97,7 @@ export default () => {
               <br />
               <SlantedBackground>SmallEight</SlantedBackground>
             </Heading>
-            <PrimaryAction>お問い合わせ</PrimaryAction>
+            <Link to="/contact"><PrimaryAction>お問い合わせ</PrimaryAction></Link>
           </LeftColumn>
           <RightColumn>
             <ConfettiDiv>

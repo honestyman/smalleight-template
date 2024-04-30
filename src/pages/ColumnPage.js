@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getColumnCategoryList, getColumnList } from "../redux/slice/columnSlice";
 
 const HeadingRow = tw.div`flex`;
-const Heading = tw(SectionHeading)`text-gray-900`;
+const Heading = tw(SectionHeading)`text-primary-500`;
 const Posts = tw.div`mt-6 sm:-mr-8 flex flex-wrap`;
 const PostContainer = tw.div`mt-10 w-full sm:w-1/2 lg:w-1/3 sm:pr-8`;
 const TopDiv=tw.div`mt-5 w-full flex sm:flex-wrap`;

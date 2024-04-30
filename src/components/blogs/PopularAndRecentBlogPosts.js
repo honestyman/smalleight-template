@@ -91,10 +91,10 @@ export default () => {
               {(allColumnList.slice(0,3)).map((post, index) => (
                 <Post key={index} className="group" initial="rest" whileHover="hover" animate="rest" onClick={()=>moveDetail(post.id)}>
                   {
-                     post.thumbnail && <Image
+                    <Image
                     transition={{ duration: 0.3 }}
                     variants={postBackgroundSizeAnimation}
-                    $imageSrc={`${process.env.REACT_APP_BASE_URL}/img/${post.thumbnail}`}
+                    $imageSrc={post.thumbnail?`${process.env.REACT_APP_BASE_URL}/img/${post.thumbnail}`:`https://images.unsplash.com/photo-1418854982207-12f710b74003?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80`}
                   />
                   }
                   

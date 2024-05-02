@@ -116,6 +116,18 @@ import ColumnDetailPage from "pages/ColumnDetailPage";
 import QueryThankYouPage from "pages/QueryThankYouPage";
 import WebTool from "pages/WebTool";
 import CreateParameter from "pages/CreateParameter";
+import Login from "admin/Login";
+import Manage from "admin/Manage";
+import ClientManage from "admin/admincomponent/clientmange/ClientManage";
+import ClientDetail from "admin/admincomponent/clientmange/ClientDetail";
+import CompanyManage from "admin/admincomponent/comanymanage/CompanyManage";
+import CompanyAddPage from "admin/admincomponent/comanymanage/CompanyAddPage";
+import CompanyUpdatePage from "admin/admincomponent/comanymanage/CompanyUpdatePage";
+import CompanyDetail from "admin/admincomponent/comanymanage/CompanyDetail";
+import ColumnManage from "admin/admincomponent/columnmanage/ColumnManage";
+import ColumnAddPage from "admin/admincomponent/columnmanage/ColumnAddPage";
+import ColumnManageDetail from "admin/admincomponent/columnmanage/ColumnManageDetail";
+import ColumnUpdatePage from "admin/admincomponent/columnmanage/ColumnUpdatePage";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -139,6 +151,22 @@ export default function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} /> 
           <Route path="/terms" element={<TermsOfService />} /> 
           <Route path="/contact" element={<ContactUs />} /> 
+
+          <Route path='/admin' element={<Login/>}/>
+          <Route path='/manage' element={<Manage/>}>
+            <Route index element={<ClientManage/>}/>
+            <Route path='client_detail/:id' element={<ClientDetail/>}/>
+            <Route path='companymanage' element={<CompanyManage/>}/>
+            <Route path='companymanage/company_add' element={<CompanyAddPage/>}/>
+            <Route path='companymanage/company_detail/:id' element={<CompanyDetail/>}/>
+            <Route path='companymanage/company_update/:id' element={<CompanyUpdatePage/>}/>
+            <Route path='columnmanage' element={<ColumnManage/>}/>
+            <Route path='columnmanage/column_add' element={<ColumnAddPage/>}/>
+            <Route path='columnmanage/column_detail/:id' element={<ColumnManageDetail/>}/>
+            <Route path='columnmanage/column_update/:id' element={<ColumnUpdatePage/>}/>
+
+          </Route>
+
           {/* <Route path="/tools" element={<PrivacyPolicy />} />  */}
         </Routes>
       </Router>

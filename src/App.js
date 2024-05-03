@@ -128,6 +128,7 @@ import ColumnManage from "admin/admincomponent/columnmanage/ColumnManage";
 import ColumnAddPage from "admin/admincomponent/columnmanage/ColumnAddPage";
 import ColumnManageDetail from "admin/admincomponent/columnmanage/ColumnManageDetail";
 import ColumnUpdatePage from "admin/admincomponent/columnmanage/ColumnUpdatePage";
+import TitleTag from "pages/TitleTag";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -145,6 +146,7 @@ export default function App() {
           <Route path="/" element={<AgencyLandingPage />} /> 
           <Route path="/tools" element={<WebTool />} /> 
           <Route path="tools/create-param" element={<CreateParameter />} /> 
+          <Route path="tools/title-tag" element={<TitleTag />} /> 
           <Route path="/column" element={<ColumnPage />} /> 
           <Route path='/columndetail/:id' element={<ColumnDetailPage/>}/>
           <Route path="/summary" element={<SummaryPage />} /> 

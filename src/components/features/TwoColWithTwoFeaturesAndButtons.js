@@ -6,9 +6,9 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
 import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
-import TeamIllustrationSrc from "images/team-illustration-2.svg";
+import TeamIllustrationSrc from "../../images/bee.png";
 
-const Container = tw.div`relative`;
+const Container = tw.div`w-full relative bg-white`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;
@@ -27,7 +27,7 @@ const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
+const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-loose text-secondary-100`;
 
 const Features = tw.div`mt-8 max-w-sm mx-auto md:mx-0`;
 const Feature = tw.div`mt-8 flex items-start flex-col md:flex-row`;
@@ -46,10 +46,12 @@ const FeatureDescription = tw.div`mt-1 text-sm`;
 const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block mx-auto md:mx-0`;
 
 export default ({
-  subheading = "Our What is SmallEight？",
+  subheading = "What is SmallEight？",
   heading = (
     <>
-      <span tw="text-primary-500">SmallEight</span>→小さい八→小さなことから末広がり。
+      <p tw="text-primary-500">SmallEight</p>
+      <p>→小さい八</p>
+      <p>→小さなことから末広がり。</p>
     </>
   ),
   description = "小さいことを積み重ねる事が、とんでもないところへ行くただひとつの道だと思っています。」これは、イチロー選手がメジャーリーグの年間安打記録を破ったときの記者会見で話された言葉です。地道に重ねる行動こそ「大きな力」に。SmallEightは地道な支援で末広がるサービスを提供していきたいと考えています。「SmallEight」→「スモール８」→「スモハチ」と覚えていただけると嬉しいです。",

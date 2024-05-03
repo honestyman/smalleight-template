@@ -12,11 +12,11 @@ import { ReactComponent as SvgDecoratorBlob3 } from "../../images/svg-decorator-
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 
 import SupportIconImage from "../../images/support-icon.svg";
-import ShieldIconImage from "../../images/shield-icon.svg";
+import ShieldIconImage from "../../images/adverb.png";
 import CustomizeIconImage from "../../images/customize-icon.svg";
-import FastIconImage from "../../images/fast-icon.svg";
-import ReliableIconImage from "../../images/reliable-icon.svg";
-import SimpleIconImage from "../../images/simple-icon.svg";
+import FastIconImage from "../../images/lp.png";
+import ReliableIconImage from "../../images/analysis.png";
+import SimpleIconImage from "../../images/seo.png";
 
 const Container = tw.div`relative`;
 

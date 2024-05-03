@@ -19,8 +19,8 @@ const StyledHeader = styled(Header)`
 `;
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover`}
-  background-image: url("https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
-`;
+  `;
+  // background-image: url("https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
 
@@ -29,7 +29,7 @@ const TwoColumn = tw.div`pt-24 pb-32 px-4 flex justify-between items-center flex
 const LeftColumn = tw.div`flex flex-col items-center lg:block`;
 const RightColumn = tw.div`w-[300px] h-[300px] sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
 
-const ConfettiDiv = tw.div`w-full h-full flex flex-col rounded-md bg-pink-500 items-center justify-center`;
+const ConfettiDiv = tw.div`w-full h-full flex flex-col rounded-md items-center justify-center`;
 
 const Heading = styled.h1`
   ${tw`text-3xl text-center lg:text-left sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-100 leading-none`}
@@ -86,6 +86,11 @@ export default () => {
 
   return (
     <Container>
+      <video src= 
+        {`${process.env.REACT_APP_BASE_URL}/img/back.mp4`}
+            autoPlay={true} loop muted 
+            tw="absolute z-0 w-auto lg:min-w-full lg:min-h-full sm:w-[300px] max-w-none"> 
+        </video>
       <OpacityOverlay />
       <HeroContainer>
         <StyledHeader links={navLinks} />

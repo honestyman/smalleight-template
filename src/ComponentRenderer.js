@@ -39,7 +39,7 @@ import PrivacyPolicyPageImageSrc from "images/demo/PrivacyPolicyPage.jpeg";
 
 import BackgroundAsImageHero from "components/hero/BackgroundAsImage.js";
 import IllustrationAndVideoHero from "components/hero/TwoColumnWithVideo.js";
-import IllustrationAndInputHero from "components/hero/TwoColumnWithInput.js";
+import IllustrationAndInputHero from "components/hero/CreateParameterContent.js";
 import FeaturesAndTestimonialHero from "components/hero/TwoColumnWithFeaturesAndTestimonial.js";
 import FullWidthWithImageHero from "components/hero/FullWidthWithImage.js";
 import BackgroundAsImageWithCenteredContentHero from "components/hero/BackgroundAsImageWithCenteredContent.js";

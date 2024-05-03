@@ -7,6 +7,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
 import logo from "../../images/logo.png";
+import logo1 from "../../images/logo-full.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 
@@ -93,10 +94,10 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
 
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
   const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
-
+  console.log("pathname", window.location.pathname);
   const defaultLogoLink = (
     <LogoLink href="/">
-      <img src={logo} alt="logo" />
+      <img src={window.location.pathname=="/"?logo:logo1} alt="logo" />
       SmallEight
     </LogoLink>
   );

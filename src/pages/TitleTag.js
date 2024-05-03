@@ -5,12 +5,12 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import Header from "components/headers/light.js";
 // import Footer from "components/footers/FiveColumnWithInputForm.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
-import CreateParameterContent from "components/hero/CreateParameterContent";
+import TitleTagContent from "components/hero/TitleTagContent";
 
 export default () => {
   return (
     <AnimationRevealPage>
-      <CreateParameterContent />
+      <TitleTagContent />
       <Footer />
     </AnimationRevealPage>
   );

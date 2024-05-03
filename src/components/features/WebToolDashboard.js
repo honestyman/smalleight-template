@@ -69,7 +69,7 @@ export default () => {
       title: "見出し(hタグ)確認",
       description: "指定したサイトURLの文字数、 タイトル、見出しタグを確認できます。",
       primaryButtonText:"ツールへ",
-      link: "/tools"
+      link: "/tools/title-tag"
     },
     { 
       title: "OGPタグ確認",

@@ -80,16 +80,8 @@ export default ({ roundedHeaderButton }) => {
         const bodyText = doc.body.textContent || '';
         setTotalCharacters(bodyText.replace(/\s+/g, '').length); // Removing all whitespace before counting
 
-        // Extracting heading tags (h1 to h6)
-        const hTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-        const extractedHeadings = hTags.map(tag => {
-          const elements = doc.querySelectorAll(tag);
-          const headingsContent = Array.from(elements).map(element => element.textContent.trim());
-          return { tag, headingsContent };
-        });
-
-        setHeadings(extractedHeadings);
-        // setHeadings(headingsContent);
+        const heading = extractHeadings(doc);
+        setHeadings(heading);
       } catch (error) {
         console.error('Error fetching and parsing data:', error);
       }
@@ -98,13 +90,29 @@ export default ({ roundedHeaderButton }) => {
     }
   };
 
-  useEffect(()=>{
-    console.log(totalCharacters);
-  },[totalCharacters])
+  const extractHeadings = (doc) => {
+    const heading = [];
 
-  useEffect(()=>{
-    console.log(headings)
-  }, [headings])
+    const extractHeadingsRecursively = (element, level) => {
+      const tagName = element.tagName.toLowerCase();
+      const content = element.textContent.trim();
+
+      if (tagName.startsWith('h') && tagName.length === 2 && !isNaN(parseInt(tagName[1]))) {
+        heading.push({ tag: tagName, content, level });
+      }
+      for (const childNode of element.childNodes) {
+        if (childNode.nodeType === Node.ELEMENT_NODE) {
+          extractHeadingsRecursively(childNode, level + 1);
+        }
+      }
+    };
+    const body = doc.body;
+    if (body) {
+      extractHeadingsRecursively(body, 1);
+    }
+
+    return heading;
+  };
 
   return (
     <>
@@ -137,15 +145,31 @@ export default ({ roundedHeaderButton }) => {
                   {
                     headings && headings.map((heading, index)=>{
                       return(
-                        <div key={index} tw="flex">
-                          <label tw="text-base">{heading.tag}:</label>
-                          <div>
-                            {heading.headingsContent.map((content, index1)=>{
-                              return(
-                                <p key={index1} tw="ml-5">{content}</p>
-                              )
-                            })}
-                          </div>
+                        <div key={index}>
+                          {heading.tag=="h1" && <div tw="flex">  
+                            <label tw="text-base">{heading.tag}:</label>
+                            <div>
+                                {<p tw="ml-2">{heading.content}</p>}
+                            </div>
+                            </div>}
+                            {heading.tag=="h2" && <div tw="flex ml-[10px]">  
+                            <label tw="text-base">{heading.tag}:</label>
+                            <div>
+                                {<p tw="ml-2">{heading.content}</p>}
+                            </div>
+                            </div>}
+                            {heading.tag=="h3" && <div tw="flex ml-[20px]">  
+                            <label tw="text-base">{heading.tag}:</label>
+                            <div>
+                                {<p tw="ml-2">{heading.content}</p>}
+                            </div>
+                            </div>}
+                            {heading.tag=="h4" && <div tw="flex ml-[30px]">  
+                            <label tw="text-base">{heading.tag}:</label>
+                            <div>
+                                {<p tw="ml-2">{heading.content}</p>}
+                            </div>
+                            </div>}
                         </div>
                       );
                     })

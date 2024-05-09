@@ -6,7 +6,8 @@ const initialState = {
   postQueryResultMessage: "",
   deletedResultMessage: "",
   postWantedResultMessage: "",
-  oneClientData: {}
+  oneClientData: {},
+  countData: 0
 }
 
 export const getClientList = createAsyncThunk(
@@ -96,6 +97,22 @@ export const postWanted = createAsyncThunk(
   }
 )
 
+export const getCounts = createAsyncThunk(
+  "getcounts/clients",
+  async () => {
+    const res = await axios.get(`${process.env.REACT_APP_API}/clients/getcounts`);
+    return res.data;
+  }
+)
+
+export const addOneLike = createAsyncThunk(
+  "addike/client",
+  async () => {
+    const res = await axios.post(process.env.REACT_APP_API+"/clients/addlike");
+    return res.data;
+  }
+)
+
 export const clientSlice = createSlice({
   name: 'clients',
   initialState,
@@ -117,6 +134,9 @@ export const clientSlice = createSlice({
       })
       .addCase(postWanted.fulfilled, (state, action) => {
         state.postWantedResultMessage = action.payload.message;
+      })
+      .addCase(getCounts.fulfilled, (state, action) => {
+        state.countData = action.payload;
       })
       // .addCase(updatePassword.rejected, (state, action) => {
       //   state.message.status = 401;

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Typewriter from "typewriter-effect";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import TopRigthImage from "images/topright.png";
 
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
 import { ConfettiButton } from "components/misc/Buttons.js";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getCounts } from "../../redux/slice/clientSlice.js";
 
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none`}
@@ -26,13 +30,17 @@ const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
 
 const HeroContainer = tw.div`z-20 relative px-4 sm:px-8 max-w-screen-xl mx-auto`;
 const TwoColumn = tw.div`pt-24 pb-32 px-4 flex justify-between items-center flex-col lg:flex-row`;
-const LeftColumn = tw.div`flex flex-col items-center lg:block`;
-const RightColumn = tw.div`w-[300px] h-[300px] sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
+const LeftColumn = tw.div`w-1/2 flex flex-col items-center lg:block`;
+const RightColumn = tw.div`w-[400px] h-[400px] sm:w-5/6 lg:w-1/2 mt-16 lg:mt-0 lg:pl-8`;
 
-const ConfettiDiv = tw.div`w-full h-full flex flex-col rounded-md items-center justify-center`;
+const ConfettiDiv = tw.div`w-full h-full rounded-md`;
+const Image = styled.div(props => [
+  `background-image: url("${props.imageSrc}");`,
+  tw`flex flex-col items-center justify-center rounded bg-cover bg-no-repeat bg-center h-full`,
+]);
 
 const Heading = styled.h1`
-  ${tw`text-3xl text-center lg:text-left sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-100 leading-none`}
+  ${tw`text-center lg:text-left sm:text-4xl lg:text-3xl xl:text-5xl font-black text-gray-100 leading-none`}
   span {
     ${tw`inline-block mt-2`}
   }
@@ -62,6 +70,20 @@ const PrimaryAction = tw.button`px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm
 
 
 export default () => {
+
+  const { countData } = useSelector(state => state.clients)
+  const dispatch = useDispatch();
+
+  const [likeCount, setLikeCount] = useState(0);
+
+  useEffect(()=>{
+    dispatch(getCounts());
+  },[])
+
+  useEffect(()=>{
+    setLikeCount(countData)
+  },[countData])
+  
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="/">
@@ -98,15 +120,54 @@ export default () => {
           <LeftColumn>
             <Notification>The Buildup of Little Thing</Notification>
             <Heading>
-              <span>１％に尽くす</span>
+              {/* <span>小さなことの積み重ねで</span> */}
+              <Typewriter
+                onInit={(typewriter) => {
+                    typewriter
+                        .typeString("小さなことの積み重ねで")
+                        .pauseFor(1000)
+                        .start();
+                }}
+                options={{
+                  cursor: ""
+                }}
+              />
               <br />
-              <SlantedBackground>SmallEight</SlantedBackground>
+              {/* <SlantedBackground>大きく変わる　/　違いを作る　/　山となる！</SlantedBackground> */}
+              <SlantedBackground>
+                <Typewriter
+                  onInit={(typewriter) => {
+                      typewriter
+                          .pauseFor(2000)
+                          .typeString("大きく変わる")
+                          .pauseFor(1000)
+                          .typeString("/ 違いを作る")
+                          .start();
+                  }}
+                  options={{
+                    cursor: ""
+                  }}
+                />
+                <Typewriter
+                  onInit={(typewriter) => {
+                      typewriter
+                          .pauseFor(6000)
+                          .typeString("/ 山となる！")
+                          .start();
+                  }}
+                  options={{
+                    cursor: ""
+                  }}
+                />
+              </SlantedBackground>
             </Heading>
             <Link to="/contact"><PrimaryAction>お問い合わせ</PrimaryAction></Link>
           </LeftColumn>
           <RightColumn>
             <ConfettiDiv>
-              <ConfettiButton txt="Click me"/>
+              <Image imageSrc={TopRigthImage}>
+                <ConfettiButton/>
+              </Image>
             </ConfettiDiv>
             
             {/* <StyledResponsiveVideoEmbed

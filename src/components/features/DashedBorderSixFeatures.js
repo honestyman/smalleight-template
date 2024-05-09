@@ -82,7 +82,7 @@ export default () => {
     { 
       imageSrc: SupportIconImage,
       title: "インハウス立ち上げ支援",
-      description: "媒体選定から、アカウント構成案、運用支援/サポートなど" 
+      description: "媒体選定から、アカウント構成案、運用支援/サポートなどを行っています。" 
     },
     { 
       imageSrc: ReliableIconImage, 

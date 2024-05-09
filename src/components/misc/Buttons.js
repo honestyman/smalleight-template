@@ -1,15 +1,33 @@
-import React, { useRef } from "react";
+import React, {useEffect, useRef, useState } from "react";
+import { message } from "antd";
 
 import tw from "twin.macro";
 import confetti from 'canvas-confetti';
+import { IoMdHeart } from "react-icons/io";
+import 'animate.css';
+import { useDispatch, useSelector } from "react-redux";
+import { addOneLike, getCounts } from "../../redux/slice/clientSlice";
 
 
 export const PrimaryButton = tw.button`px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`;
 
+export const ConfettiButton = () => {
 
-export const ConfettiButton = (props) => {
+  const ref = useRef(null);
+  const { countData } = useSelector(state => state.clients)
+  const dispatch = useDispatch();
 
-  const Confetti = tw.button`px-8 py-3 font-bold rounded bg-primary-700 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`;
+  const [likeCount, setLikeCount] = useState(0);
+
+  useEffect(()=>{
+    dispatch(getCounts());
+  },[])
+
+  useEffect(()=>{
+    setLikeCount(countData)
+  },[countData])
+
+  const Confetti = tw.button`w-[120px] px-5 py-3 ml-16 mb-20 flex justify-center items-center font-bold rounded bg-red-500 text-gray-100 hover:bg-primary-700 hover:text-gray-200 hover:shadow-outline hover:outline-none transition duration-300`;
 	const handleClick = (e) => {
 		e.preventDefault();
 		const button = e.target;
@@ -25,10 +43,40 @@ export const ConfettiButton = (props) => {
 			spread: 60,
 			origin: { x: x }
 		});
+
+    dispatch(addOneLike()).then(()=>{
+      message.success('クリックありがとうございます！');
+      dispatch(getCounts())
+    })
 	}
+
+	useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('wow', 'animate__animated', 'animate__heartBeat');
+        } else {
+          entry.target.classList.remove('wow', 'animate__animated', 'animate__heartBeat');
+        }
+      });
+    });
+
+    observer.observe(ref.current);
+
+    const interval = setInterval(() => {
+      const element = ref.current;
+      if (element) {
+        element.classList.add('wow', 'animate__animated', 'animate__heartBeat');
+        setTimeout(() => {
+          element.classList.remove('wow', 'animate__animated', 'animate__heartBeat');
+        }, 1000);
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 	return (
-		<div>
-			<Confetti onClick={handleClick}>{props.txt}</Confetti>
+		<div ref={ref}>
+			<Confetti onClick={handleClick}><IoMdHeart tw="mx-10"/>{likeCount}</Confetti>
 		</div>
 	);
 };

@@ -55,7 +55,7 @@ export default ({
   const [clientName, setClientName] = useState("");
   const [clientCompanyName, setClientCompanyName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
-  const [queryKind, setQueryKind] = useState("スモハチツールについて");
+  const [queryKind, setQueryKind] = useState("WEBツールについて");
   const [questionContent, setQuestionContent] = useState("");
 
   const [validQueryKind, setValidQueryKind] = useState("");
@@ -143,10 +143,12 @@ const clickQueryHandler =()=>{
             <Form>
               <Label>お問い合わせ種類<Required>必須</Required></Label>
               <Select name="kind" value={queryKind} onChange={(e) => setQueryKind(e.target.value)}>
-                <option value="Mitsukeについて">スモハチツールについて</option>
-                <option value="Small Eightについて">デジタルマーケティング支援について</option>
-                <option value="Small Eightについて">LP、 サイト制作支援について</option>
-                <option value="その他">その他</option>
+                <option value="Mitsukeについて">WEBツールについて</option>
+                <option value="Small Eightについて">広告運用サポートについて</option>
+                <option value="Small Eightについて">インハウス立ち上げ支援について</option>
+                <option value="その他">コンバージョン率最適化について</option>
+                <option value="その他">SEO/SEOツール導入支援について</option>
+                <option value="その他">LP・サイト制作支援について</option>
               </Select>
               <Valid>{validQueryKind !="" && validQueryKind}</Valid>
               <Label>会社名<Required>必須</Required></Label>
@@ -161,7 +163,7 @@ const clickQueryHandler =()=>{
               <Label>問い合わせ内容<Required>必須</Required></Label>
               <Textarea maxLength={1000} name="contents" placeholder="恐れ入りますが、 お問い合わせにご対応しかねる場合がございます。 あらかじめご了承ください。" value={questionContent} onChange={(e) => setQuestionContent(e.target.value)}/>
               <Valid>{validQuestionContent !="" && validQuestionContent}</Valid>
-              <SubmitButton onClick={clickQueryHandler}>Send</SubmitButton>
+              <SubmitButton onClick={clickQueryHandler}>お問い合わせ</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>

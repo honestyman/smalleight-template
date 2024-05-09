@@ -18,40 +18,7 @@ export default () => {
     <AnimationRevealPage>
       <Header />
       {/* <ContactUsForm /> */}
-      <ContactDetails
-        cards={[
-          {
-            title: "屋号",
-            description: (
-              <>
-                <Text>
-                  <TextLine>SmallEight</TextLine>
-                </Text>
-              </>
-            )
-          },
-          {
-            title: "創業",
-            description: (
-              <>
-                <Text>
-                  <TextLine>2024年4月1日</TextLine>
-                </Text>
-              </>
-            )
-          },
-          {
-            title: "代表",
-            description: (
-              <>
-                <Text>
-                  <TextLine>小笹 洸揮</TextLine>
-                </Text>
-              </>
-            )
-          }
-        ]}
-      />
+      <ContactDetails/>
       <Footer />
     </AnimationRevealPage>
   );

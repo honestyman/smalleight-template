@@ -8,7 +8,7 @@ import { SectionDescription } from "components/misc/Typography.js";
 
 import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
 
-const Container = tw.div`relative`;
+const Container = tw.div`relative px-5`;
 
 const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
@@ -22,8 +22,8 @@ const VerticalSpacer = tw.div`mt-10 w-full`
 const Column = styled.div`
   ${tw`md:w-1/2 lg:w-1/3 max-w-sm`}
 `;
-const Business = tw.div`w-full flex flex-col justify-center items-center py-10 md:w-1/2 lg:w-full`;
-const BusinessTextDiv = tw.div`w-full border-b sm:ml-4 text-center lg:mt-10 sm:mt-2`;
+const Business = tw.div`w-full flex flex-col justify-center items-center lg:py-10 py-5 md:w-1/2 lg:w-full`;
+const BusinessTextDiv = tw.div`w-full border-b sm:ml-4 text-center mt-10`;
 const BusinessTitle = tw.span`mt-4 tracking-wide font-bold text-2xl leading-none`;
 const BusinessDescription = tw.p`mt-1 sm:mt-4 text-center font-medium text-secondary-100 leading-loose`;
 
@@ -76,7 +76,7 @@ export default ({heading = "小さいことの積み重ね。 末広がる。"})
     },
     { 
       title: "所在地",
-      description: ""
+      description: "東京都中央区京橋2-7-14 ビュレックス京橋713"
     }
   ];
 
@@ -110,9 +110,6 @@ export default ({heading = "小さいことの積み重ね。 末広がる。"})
         ))}
         <BusinessTextDiv>
           <BusinessTitle>事業内容</BusinessTitle>
-          <BusinessDescription>
-          ・ ビジネスマッチングサービスの運営
-          </BusinessDescription>
           <BusinessDescription>
           ・ WEB広告運用をはじめとしたプロモーション業務
           </BusinessDescription>

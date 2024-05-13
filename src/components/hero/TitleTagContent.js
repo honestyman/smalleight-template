@@ -14,7 +14,7 @@ import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-
 import DesignIllustration from "../../images/design-illustration-2.svg";
 import CustomersLogoStripImage from "../../images/customers-logo-strip.png";
 
-const Container = tw.div`relative`;
+const Container = tw.div`relative px-5`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row max-w-screen-xl mx-auto py-20 md:py-24`;
 const LeftColumn = tw.div`relative lg:w-5/12 text-center max-w-lg mx-auto lg:max-w-none lg:text-left`;
 const RightColumn = tw.div`relative lg:w-7/12 lg:mt-0 flex-1 flex flex-col`;
@@ -32,9 +32,9 @@ const Actions = styled.div`
   }
 `;
 
-const ResultContainer = tw.div`w-full flex justify-start items-start pl-20`;
+const ResultContainer = tw.div`w-full flex justify-start items-start lg:pl-20 pl-0 pt-10`;
 const ResultDiv = tw.div`w-full flex flex-col items-center`;
-const ResultContent = tw.div`w-full lg:h-[600px] rounded border shadow overflow-y-auto mt-5 p-5`;
+const ResultContent = tw.div`w-full lg:h-[600px] h-[300px] rounded border shadow overflow-y-auto mt-5 p-5`;
 
 // Random Decorator Blobs (shapes that you see in background)
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
@@ -51,12 +51,10 @@ const CustomersLogoStrip = styled.div`
   }
 `;
 const Form = tw.div`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
-const Label = tw.label`md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
+const Label = tw.label`text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 const Input = tw.input`mb-3 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
 const ResultLabel = tw.label`md:text-left md:text-4xl font-medium leading-relaxed text-center`
 
-const Result = tw.div`mb-3 first:mt-0 h-24 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`;
-const ResultText = tw.p`break-words`;
 
 const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block mx-auto md:mx-0`;
 

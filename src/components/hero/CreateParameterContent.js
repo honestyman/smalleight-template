@@ -11,10 +11,10 @@ import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-
 import DesignIllustration from "../../images/design-illustration-2.svg";
 import CustomersLogoStripImage from "../../images/customers-logo-strip.png";
 
-const Container = tw.div`relative`;
-const TwoColumn = tw.div`flex flex-col lg:flex-row lg:items-center max-w-screen-xl mx-auto py-20 md:py-24`;
+const Container = tw.div`relative px-10`;
+const TwoColumn = tw.div`flex flex-col lg:flex-row justify-center items-center max-w-screen-xl mx-auto py-20`;
 const LeftColumn = tw.div`relative lg:w-5/12 text-center max-w-lg mx-auto lg:max-w-none lg:text-left`;
-const RightColumn = tw.div`relative mt-12 lg:mt-0 flex-1 flex flex-col justify-center lg:self-end`;
+const RightColumn = tw.div`relative mt-12 lg:mt-0 flex justify-center items-center lg:self-end`;
 
 const Heading = tw.h1`font-bold text-3xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 leading-tight`;
 const Paragraph = tw.p`my-5 lg:my-8 text-base xl:text-lg`;
@@ -29,7 +29,7 @@ const Actions = styled.div`
   }
 `;
 
-const IllustrationContainer = tw.div`flex justify-center lg:justify-end items-center`;
+const IllustrationContainer = tw.div`h-full flex justify-center items-center`;
 
 // Random Decorator Blobs (shapes that you see in background)
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
@@ -46,7 +46,7 @@ const CustomersLogoStrip = styled.div`
   }
 `;
 const Form = tw.div`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
-const Label = tw.label`md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
+const Label = tw.label`text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 const Input = tw.input`mb-3 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
 const ResultLabel = tw.label`md:text-left mt-10 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 

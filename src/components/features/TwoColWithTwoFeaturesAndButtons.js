@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
@@ -13,11 +14,11 @@ const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;
 const TextColumn = styled(Column)(props => [
-  tw`md:w-7/12 mt-16 md:mt-0`,
+  tw`md:w-7/12 mt-16 px-5 md:px-10 md:mt-0`,
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
 ]);
 
-const Image = styled.div(props => [
+const Image = styled(motion.div)(props => [
   `background-image: url("${props.imageSrc}");`,
   tw`rounded bg-contain bg-no-repeat bg-center h-full`
 ]);
@@ -57,38 +58,22 @@ export default ({
   textOnLeft = true
 }) => {
 
-  const ref = useRef(null);
-
-  useEffect(() => {
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('wow', 'animate__animated', 'animate__shakeY');
-        } else {
-          entry.target.classList.remove('wow', 'animate__animated', 'animate__shakeY');
-        }
-      });
-    });
-    observer.observe(ref.current);
-
-    const interval = setInterval(() => {
-      const element = ref.current;
-      if (element) {
-        element.classList.add('wow', 'animate__animated', 'animate__shakeY');
-        setTimeout(() => {
-          element.classList.remove('wow', 'animate__animated', 'animate__shakeY');
-        }, 1000);
-      }
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <Container>
       <TwoColumn>
-        <ImageColumn ref={ref}>
-          <Image imageSrc={TeamIllustrationSrc} />
+        <ImageColumn>
+          <Image
+            initial={{ opacity: 0, y: 50 }} // Initial animation properties
+            animate={{ opacity: 1, y: 0 }} // Animation properties when component mounts
+            transition={{
+              y: {
+                duration: 1.5,
+                yoyo: Infinity,
+                ease: "easeOut",
+              },
+            }}
+            imageSrc={TeamIllustrationSrc} />
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>

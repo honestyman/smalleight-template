@@ -27,7 +27,7 @@ export const ConfettiButton = () => {
     setLikeCount(countData)
   },[countData])
 
-  const Confetti = tw.button`w-[120px] px-5 py-3 ml-16 mb-20 flex justify-center items-center font-bold rounded bg-red-500 text-gray-100 hover:bg-primary-700 hover:text-gray-200 hover:shadow-outline hover:outline-none transition duration-300`;
+  const Confetti = tw.button`lg:w-[120px] w-[100px] px-5 py-3 lg:ml-16 ml-10 mb-20 flex justify-center items-center font-bold rounded bg-red-500 text-gray-100 hover:bg-primary-700 hover:text-gray-200 hover:shadow-outline hover:outline-none transition duration-300`;
 	const handleClick = (e) => {
 		e.preventDefault();
 		const button = e.target;

@@ -9,7 +9,7 @@ import { PrimaryButton } from "components/misc/Buttons.js";
 import EmailIllustrationSrc from "images/email-illustration.svg";
 import { postQuery } from "../../redux/slice/clientSlice";
 
-const Container = tw.div`relative`;
+const Container = tw.div`relative px-10`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;
@@ -29,7 +29,7 @@ const Heading = tw(SectionHeading)`mt-4 font-black text-primary-500 text-left te
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 
 const Form = tw.div`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
-const Label = tw.label`md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
+const Label = tw.label`text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 const Input = tw.input`mb-3 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
 const Select = tw.select`mb-3 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
 const Required= tw.span`bg-primary-500 text-sm text-white rounded px-1 mx-1`
@@ -48,9 +48,6 @@ export default ({
  
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  
-  const [disabled, setDisabled] = useState(true);
-  const [maxLength, setMaxLength] = useState(0);
 
   const [clientName, setClientName] = useState("");
   const [clientCompanyName, setClientCompanyName] = useState("");
@@ -73,19 +70,19 @@ const clickQueryHandler =()=>{
   }else{
     setValidQueryKind("");
   }
-  if(validCompanyName == ""){
+  if(clientCompanyName == ""){
     setValidCompanyName("※この項目は必須入力項目です。");
     flag=false;
   }else{
     setValidCompanyName("");
   }
-  if(validClientName == ""){
+  if(clientName == ""){
     setValidClientName("※この項目は必須入力項目です。");
     flag=false;
   }else{
     setValidClientName("");
   }
-  if(validClientEmail == ""){
+  if(clientEmail == ""){
     setValidClientEmail("※この項目は必須入力項目です。");
     flag=false;
   }else{
@@ -96,7 +93,7 @@ const clickQueryHandler =()=>{
       setValidClientEmail("");
     }
   }
-  if(validQuestionContent == ""){
+  if(questionContent == ""){
     setValidQuestionContent("※この項目は必須入力項目です。")
     flag=false;
   }else{
@@ -104,7 +101,6 @@ const clickQueryHandler =()=>{
   }
 
   if(flag == true){
-    alert("ssss");
     const payload={
       kind:queryKind,
       name:clientName,
@@ -117,19 +113,6 @@ const clickQueryHandler =()=>{
     });
   }
   }
-  useEffect(()=>{
-    if(questionContent){
-      setMaxLength(questionContent.length)
-    }
-  },[questionContent])
- 
-  useEffect(()=>{
-    if(queryKind && clientCompanyName && clientName && clientEmail && questionContent){
-      setDisabled(false);
-    }else{
-      setDisabled(true);
-    }
-  },[ clientCompanyName, clientName, clientEmail, questionContent]);
 
   return (
     <Container>
@@ -149,6 +132,7 @@ const clickQueryHandler =()=>{
                 <option value="その他">コンバージョン率最適化について</option>
                 <option value="その他">SEO/SEOツール導入支援について</option>
                 <option value="その他">LP・サイト制作支援について</option>
+                <option value="その他">その他</option>
               </Select>
               <Valid>{validQueryKind !="" && validQueryKind}</Valid>
               <Label>会社名<Required>必須</Required></Label>

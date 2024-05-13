@@ -12,18 +12,22 @@ import LinesEllipsis from 'react-lines-ellipsis'
 import { useDispatch, useSelector } from "react-redux";
 import { getColumnList } from "../../redux/slice/columnSlice";
 
-const Row = tw.div`flex flex-col lg:flex-row lg:flex-wrap -mb-10`;
+const Row = tw.div`flex flex-col lg:flex-row lg:flex-wrap -mb-10 mx-5 lg:mx-0`;
 const Heading = tw(SectionHeading)`text-left text-primary-500 lg:text-4xl xl:text-5xl`;
 
 const PopularPostsContainer = tw.div`lg:w-2/3`;
-const PostsContainer = tw.div`mt-12 flex flex-col sm:flex-row sm:justify-between lg:justify-center`;
-const ViewMoreDiv =tw.div`w-full flex items-center pt-20 justify-center`
+const PostsContainer = tw.div`w-full mt-12 flex flex-col sm:flex-row sm:justify-between lg:justify-center`;
+const ViewMoreDiv =tw.div`w-full flex items-center lg:pt-20 pt-0 justify-center`
 
-const Post = tw(motion.div)`block sm:max-w-sm cursor-pointer mb-16 sm:mb-0 sm:odd:mr-8 lg:mx-2 xl:mx-2`;
+const Post = tw(motion.div)`block sm:max-w-sm lg:w-1/3 cursor-pointer mb-16 sm:mb-0 sm:odd:mr-8 lg:mx-2 xl:mx-2`;
 const Image = styled(motion.div)(props => [
   `background-image: url("${props.$imageSrc}");`,
-  tw`h-64 bg-cover bg-center rounded`
+  tw`w-full h-64 bg-cover bg-no-repeat bg-center rounded`
 ]);
+// const Image = styled.div`
+//   ${props => css`background-image: url("${props.imageSrc}");`}
+//   ${tw`h-64 w-full bg-cover bg-center rounded-t-lg`}
+// `;
 const Title = tw.h5`mt-6 text-xl font-bold transition duration-300 group-hover:text-primary-500`;
 const Description = tw.div`mt-2 font-medium text-secondary-100 leading-loose text-sm`;
 
@@ -36,7 +40,7 @@ const RecentDescription = tw.div`font-semibold text-lg`;
 // const AuthorProfile = tw.p`text-secondary-100 text-sm`;
 
 const RecentPostsContainer = styled.div`
-  ${tw`mt-24 lg:mt-0 lg:w-1/3`}
+  ${tw`lg:mt-0 lg:w-1/3`}
   ${PostsContainer} {
     ${tw`flex flex-wrap lg:flex-col mt-24`}
   }

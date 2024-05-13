@@ -15,7 +15,7 @@ import { IoMdCode} from "react-icons/io";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { PiTreeStructure } from "react-icons/pi";
 
-const Container = tw.div`relative`;
+const Container = tw.div`relative px-10`;
 
 const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row md:justify-between max-w-screen-xl mx-auto py-20 md:py-20`}

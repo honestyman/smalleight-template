@@ -26,28 +26,28 @@ const ColumnDetailContent = (props) => {
   const [date, setDate]=useState("")
 
   const  {oneColumnData } = useSelector(state => state.columns);
-  const Title = tw.h1`lg:text-3xl font-bold mt-20 text-center sm:text-xl sm:mt-10`;
+  const Title = tw.h1`lg:text-3xl font-bold lg:mt-20 text-center sm:text-xl mt-10`;
   const H2 = tw.h2`ml-2 sm:text-base font-bold lg:text-2xl`;
   const ParentContainer = tw.div`w-full`
-  const TextPath = tw.div`lg:mx-10 pb-10 text-left sm:mx-2`;
+  const TextPath = tw.div`lg:mx-10 lg:pb-10 pb-0 text-left text-sm sm:mx-2`;
   const Maindiv = tw.div`w-full flex justify-center pb-10 sm:rounded-[20px] sm:flex-wrap-reverse`;
   const MainContainer = tw.div`flex flex-col text-left sm:px-5 sm:w-full`;
   const FirstDiv = tw.div`flex mt-5 py-2 justify-between items-center flex-wrap`;
-  const Description = tw.div`my-10 leading-loose tracking-wider lg:text-base sm:text-xs`;
+  const Description = tw.div`my-10 leading-loose tracking-wider lg:text-base text-sm`;
   const CategoryList = styled.div`${tw`flex`}
   span {
-    ${tw`mx-3 lg:text-sm font-bold bg-primary-500 text-gray-100 rounded-md sm:text-xs px-2 py-1 sm:mx-1`}
+    ${tw`lg:mx-3 lg:text-sm text-xs font-bold bg-primary-500 text-gray-100 rounded-md sm:text-xs px-2 py-1 mx-1`}
   }`;
-  const DateText = tw.p`text-xl text-[#191F4D] font-bold mx-5 text-gray-700`
+  const DateText = tw.p`lg:text-xl text-sm text-[#191F4D] font-bold mx-5 text-gray-700`
   
   const NavLink = tw.a`bg-primary-500 px-3 py-1 text-gray-100 rounded-md`;
-  const MenuDiv = styled.div`${tw`bg-[#f4f8f9] lg:p-10 flex flex-col sm:p-5`}
+  const MenuDiv = styled.div`${tw`bg-[#f4f8f9] lg:p-10 flex flex-col p-5`}
   
   `;
   const MenuTitleDiv = tw.div`flex items-center text-primary-500 font-bold justify-center lg:text-2xl sm:text-xl py-5`
   const MenuTitle = tw.p`ml-2`;
-  const MenuH1Mark =tw.div`flex lg:text-base font-bold lg:p-3 items-center sm:text-xl sm:pt-0`;
-  const MenuH2Mark =tw.div`w-full py-2 pl-20 font-bold sm:pl-10`;
+  const MenuH1Mark =tw.div`flex lg:text-base font-bold lg:p-3 items-center sm:text-xl pt-2`;
+  const MenuH2Mark =tw.div`w-full py-2 pl-20 font-bold sm:pl-10 mt-2`;
   const MenuDivH1 = tw.div`rounded-full text-sm mr-2 text-white p-2 bg-primary-500`;
 
   const ThumbnailDiv = styled.div`${tw`w-full flex justify-center py-5`}
@@ -63,12 +63,12 @@ const ColumnDetailContent = (props) => {
   img {
     ${tw`rounded hover:opacity-50 hover:scale-110`}
   }`;
-const H1Description = tw.p`my-10 lg:text-base leading-loose tracking-wider sm:text-xs`;
+const H1Description = tw.p`my-10 lg:text-base leading-loose tracking-wider text-sm`;
 const H3Title = styled.div`${tw`w-full border-b-[2px] border-dashed p-3 border-primary-500`}
   h3 {
     ${tw`lg:text-xl font-bold sm:text-[16px]`}
   }`;
-const H3Description = tw.p`my-10 lg:text-base leading-loose tracking-wider sm:text-xs`
+const H3Description = tw.p`my-10 lg:text-base leading-loose tracking-wider text-sm`
 
 
   useEffect(() => {

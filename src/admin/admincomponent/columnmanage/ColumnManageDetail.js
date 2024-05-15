@@ -51,6 +51,10 @@ const ColumnManageDetail=()=>{
           <label tw="font-bold">【コンテンツ】</label>
           <p>{oneColumnData.description}</p>
         </div>
+        <div tw="flex flex-col items-start py-2">
+          <label tw="font-bold">【画像説明(alt)】</label>
+          <p>{oneColumnData.alt}</p>
+        </div>
         <div>
           {oneColumnData.columnfirstchildren && oneColumnData.columnfirstchildren.map((section1, index1)=>{
               return(
@@ -59,6 +63,8 @@ const ColumnManageDetail=()=>{
                   <p>{section1.title}</p>
                   <label tw="font-bold">【コンテンツ】</label>
                   <p>{section1.description}</p>
+                  <label tw="font-bold">【画像説明(alt)】</label>
+                  <p>{section1.alt}</p>
                   <div tw="w-full flex flex-col w-full justify-center items-center pb-5">
                      {section1.image && <img tw='w-[20%] rounded hover:opacity-50 hover:scale-110' src={`${process.env.REACT_APP_BASE_URL}/img/${section1.image}`} />}
                   </div>
@@ -70,6 +76,8 @@ const ColumnManageDetail=()=>{
                           <p>{section2.title}</p>
                           <label tw="font-bold">【コンテンツ】</label>
                           <p>{section2.description}</p>
+                          <label tw="font-bold">【画像説明(alt)】</label>
+                          <p>{section2.alt}</p>
                           <div tw="w-full flex flex-col w-full justify-center items-center pb-5">
                             {section2.image && <img tw='w-[20%] rounded hover:opacity-50 hover:scale-110' src={`${process.env.REACT_APP_BASE_URL}/img/${section2.image}`} />}
                           </div>

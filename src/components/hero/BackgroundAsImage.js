@@ -65,6 +65,7 @@ export default () => {
   const dispatch = useDispatch();
 
   const [likeCount, setLikeCount] = useState(0);
+  const [cursor, setCursor] = useState('auto'); 
 
   useEffect(()=>{
     dispatch(getCounts());

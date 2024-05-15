@@ -86,7 +86,8 @@ export default ({heading = "小さいことの積み重ね。 末広がる。"})
         <Heading>{heading}</Heading>
         <Description>「小さいことを積み重ねる事が、とんでもないところへ行くただひとつの道だと思っています。」</Description>
         <Description> これは、イチロー選手がメジャーリーグの年間安打記録を破ったときの記者会見で話された言葉です。</Description>
-        <Description> 地道に重ねる行動こそ「大きな力」に。SmallEightは地道な支援で末広がるサービスを提供していきたいと考えています。</Description>
+        <Description> 地道に重ねる行動こそ「大きな力」に。</Description>
+        <Description>SmallEightは地道な支援で末広がるサービスを提供していきたいと考えています。</Description>
         <Description> 「SmallEight」→「スモール８」→「スモハチ」と覚えていただけると嬉しいです。</Description>
         <VerticalSpacer />
         <Business>

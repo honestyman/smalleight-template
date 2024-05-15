@@ -141,7 +141,7 @@ const H3Description = tw.p`my-10 lg:text-base leading-loose tracking-wider text-
               }
             </MenuDiv>
             <ThumbnailDiv>
-              {oneColumnData.thumbnail && <img src={`${process.env.REACT_APP_BASE_URL}/img/${oneColumnData.thumbnail}`} alt='thumbnail'/>}
+              {oneColumnData.thumbnail && <img src={`${process.env.REACT_APP_BASE_URL}/img/${oneColumnData.thumbnail}`} alt={oneColumnData.alt?oneColumnData.alt:""}/>}
             </ThumbnailDiv>
             <div>
               {
@@ -156,7 +156,7 @@ const H3Description = tw.p`my-10 lg:text-base leading-loose tracking-wider text-
                       </H1Title>
                       <H1Description>{section1.description}</H1Description>
                       <Image>
-                        {section1.image && <img src={`${process.env.REACT_APP_BASE_URL}/img/${section1.image}`} alt='firstimage'/>}
+                        {section1.image && <img src={`${process.env.REACT_APP_BASE_URL}/img/${section1.image}`} alt={section1.alt?section1.alt:""}/>}
                       </Image>
                       {
                         section1 && section1.columnsecondchildren.map((section2, index2)=>{
@@ -167,7 +167,7 @@ const H3Description = tw.p`my-10 lg:text-base leading-loose tracking-wider text-
                               </H3Title>
                               <H3Description>{section2.description}</H3Description>
                               <Image>
-                                {section2.image && <img src={`${process.env.REACT_APP_BASE_URL}/img/${section2.image}`} alt='secondimage'/>}
+                                {section2.image && <img src={`${process.env.REACT_APP_BASE_URL}/img/${section2.image}`} alt={section2.alt?section2.alt:""}/>}
                               </Image>
                             </div>
                           )

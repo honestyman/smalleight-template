@@ -27,12 +27,15 @@ const ColumnUpdatePage=()=>{
 
   const [parentTitleValues, setParentTitleValues] = useState([]);
   const [parentContentValues, setParentContentValues] = useState([]);
+  const [parentAlt, setParentAlt] = useState([]);
+  const [childAlt, setChildAlt] = useState([]);
   const [childrenTitleValues, setChildrenTitleValues] = useState([]);
   const [childrenContentValues, setChildrenContentValues] = useState([]);
   const [treeData, setTreeData] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [thumbnail, setThumbnail] = useState();
+  const [alt, setAlt] = useState("");
   const [currentThumnail, setCurrentThumbnail] = useState("");
   const [columnCategories, setColumnCategories] = useState();
   const [imagePreview, setImagePreview] = useState(null);
@@ -48,6 +51,7 @@ const ColumnUpdatePage=()=>{
   const [validDescription, setValidDescription] = useState("");
   const [validColumnCategory, setValidColumnCategory] = useState("");
   const [validThumbnail, setValidThumbnail] = useState("");
+  const [validAlt, setValidAlt] = useState("");
 
   const { allColumnCategoryList, oneColumnData } = useSelector(state => state.columns);
 
@@ -60,6 +64,7 @@ const ColumnUpdatePage=()=>{
     setTitle(oneColumnData.title);
     setDescription(oneColumnData.description);
     setCurrentThumbnail(oneColumnData.thumbnail);
+    setAlt(oneColumnData.alt)
     if(oneColumnData.columncategories){
       let temp = [];
       for(let i=0; i<oneColumnData.columncategories.length; i++){
@@ -71,27 +76,33 @@ const ColumnUpdatePage=()=>{
       var tempParentTitle = [];
       var tempParentContent = [];
       var tempParentImageName = [];
+      var tempParentAlt = [];
       var tempChildrenTitle = [];
       var tempChildrenContent = [];
       var tempChildrenImageName = [];
+      var tempChildAlt = [];
       oneColumnData.columnfirstchildren.map((parent, index1)=>{
         tempParentTitle = [...tempParentTitle, { key:(index1+1).toString(), value:parent.title }];
         tempParentContent = [...tempParentContent, { key:(index1+1).toString(), value:parent.description }];
         tempParentImageName = [...tempParentImageName, { key:(index1+1).toString(), image:parent.image }];
+        tempParentAlt = [...tempParentAlt, { key:(index1+1).toString(), value:parent.alt }];
         if(parent.columnsecondchildren){
           parent.columnsecondchildren.map((child, index2)=>{
             tempChildrenTitle = [...tempChildrenTitle, { key:`${(index1+1).toString()}-${(index2+1).toString()}`, value:child.title }];
             tempChildrenContent = [...tempChildrenContent, { key:`${(index1+1).toString()}-${(index2+1).toString()}`, value:child.description }];
             tempChildrenImageName = [...tempChildrenImageName, { key:`${(index1+1).toString()}-${(index2+1).toString()}`, image:child.image }];
+            tempChildAlt = [...tempChildAlt, { key:`${(index1+1).toString()}-${(index2+1).toString()}`, value:child.alt }];
           })
         }
       })
       setParentTitleValues(tempParentTitle);
       setParentContentValues(tempParentContent);
       setParentImageName(tempParentImageName);
+      setParentAlt(tempParentAlt);
       setChildrenTitleValues(tempChildrenTitle);
       setChildrenContentValues(tempChildrenContent);
       setChildrenImageName(tempChildrenImageName);
+      setChildAlt(tempChildAlt);
     }
     setFlag(true);
   },[oneColumnData])
@@ -125,6 +136,10 @@ const ColumnUpdatePage=()=>{
                               </div>
                             )}
                           </div>
+                          <div tw="flex flex-col items-start py-2">
+                            <label tw="font-bold mb-1">【現在画像説明(alt)】</label>
+                            <p>{(childAlt.filter(filterData => (filterData.key === `${(index1+1).toString()}-${(index2+1).toString()}`)))[0] && (childAlt.filter(filterData => (filterData.key === `${(index1+1).toString()}-${(index2+1).toString()}`)))[0].value}</p>
+                          </div>
 
                           <div tw="flex flex-col items-start py-2">
                             <label tw="font-bold mb-1">【小見出し】</label>
@@ -141,6 +156,10 @@ const ColumnUpdatePage=()=>{
                               id="formFile"
                               onChange={(e)=>getChildrenImage(`${(index1+1).toString()}-${(index2+1).toString()}`, e.target.files[0])} 
                               />
+                          </div>
+                          <div tw="flex flex-col items-start py-2">
+                            <label tw="font-bold mb-1">【画像説明(alt)】</label>
+                            <Input type="text"  onChange={(e)=>changeChildAlt(`${(index1+1).toString()}-${(index2+1).toString()}`, e.target.value)} />
                           </div> 
                       </div>,
               }
@@ -168,6 +187,11 @@ const ColumnUpdatePage=()=>{
                           )}
                         </div>
                         <div tw="flex flex-col items-start py-2">
+                          <label tw="font-bold mb-1">【現在画像説明(alt)】</label>
+                          <p>{(parentAlt.filter(filterData => (filterData.key === (index1+1).toString())))[0] && (parentAlt.filter(filterData => (filterData.key === (index1+1).toString())))[0].value}</p>
+                        </div>
+
+                        <div tw="flex flex-col items-start py-2">
                           <label tw="font-bold mb-1">【中見出し】</label>
                           <Input type="text" onChange={(e)=>changeParentTitle((index1+1).toString(), e.target.value)} />
                         </div>
@@ -182,6 +206,10 @@ const ColumnUpdatePage=()=>{
                             id="formFile"
                             onChange={(e)=>getParentImage((index1+1).toString(), e.target.files[0])} 
                             />
+                        </div>
+                        <div tw="flex flex-col items-start py-2">
+                          <label tw="font-bold mb-1">【中見出し】</label>
+                          <Input type="text" onChange={(e)=>changeParentAlt((index1+1).toString(), e.target.value)} />
                         </div> 
                      </div>,
               children: children
@@ -306,6 +334,14 @@ const ColumnUpdatePage=()=>{
       })
     }   
   }
+  const changeParentAlt = (key, value)=>{
+    if(value){
+      setParentAlt((previousData) => {
+          const data = previousData.filter(element => element.key != key);
+          return [...data, { key, value }];
+      })
+    }   
+  }
 
   const changeChildrenTitle = (key, value)=>{
     if(value){
@@ -318,6 +354,14 @@ const ColumnUpdatePage=()=>{
   const changeChildrenContent = (key, value)=>{
     if(value){
       setChildrenContentValues((previousData) => {
+        const data = previousData.filter(element => element.key != key);
+        return [...data, { key, value }];
+      })
+    }
+  }
+  const changeChildAlt = (key, value)=>{
+    if(value){
+      setChildAlt((previousData) => {
         const data = previousData.filter(element => element.key != key);
         return [...data, { key, value }];
       })
@@ -340,13 +384,19 @@ const ColumnUpdatePage=()=>{
     }else{
       setValidColumnCategory("")
     }
+    if(!alt){
+      setValidAlt("※この項目は必須入力項目です。")
+    }else{
+      setValidAlt("")
+    }
 
-    if(title && description && columnCategories){
+    if(title && description && columnCategories && alt){
       const payload={
         id: Id,
         title: title,
         description: description,
         columnCategories: columnCategories,
+        alt: alt,
         firstTitleValues: parentTitleValues.sort(function(a, b) {
           return a.key.localeCompare(b.key);
         }),
@@ -356,6 +406,9 @@ const ColumnUpdatePage=()=>{
         firstImageName: parentImageName.sort(function(a, b) {
           return a.key.localeCompare(b.key);
         }),
+        firstAlt: parentAlt.sort(function(a, b) {
+          return a.key.localeCompare(b.key);
+        }),
         secondTitleValues: childrenTitleValues.sort(function(a, b) {
           return a.key.localeCompare(b.key);
         }),
@@ -363,6 +416,9 @@ const ColumnUpdatePage=()=>{
           return a.key.localeCompare(b.key);
         }),
         secondImageName: childrenImageName.sort(function(a, b) {
+          return a.key.localeCompare(b.key);
+        }),
+        secondAlt: childAlt.sort(function(a, b) {
           return a.key.localeCompare(b.key);
         }), 
       }
@@ -415,6 +471,10 @@ const ColumnUpdatePage=()=>{
                           onChange={(e)=>getParentImage((parseInt(treeData[treeData.length-1 ].key)+1).toString(), e.target.files[0])} 
                           />
                       </div>
+                      <div tw="flex flex-col items-start py-2">
+                        <label tw="font-bold mb-1">【画像説明(alt)】</label>
+                        <Input type="text" onChange={(e)=>changeParentAlt((parseInt(treeData[treeData.length-1 ].key)+1).toString(), e.target.value)} />
+                      </div>
                    </div>,
             children: []
           } 
@@ -441,6 +501,10 @@ const ColumnUpdatePage=()=>{
                           id="formFile"
                           onChange={(e)=>getParentImage("1", e.target.files[0])} 
                           />
+                      </div>
+                      <div tw="flex flex-col items-start py-2">
+                        <label tw="font-bold mb-1">【画像説明(alt)】</label>
+                        <Input type="text" onChange={(e)=>changeParentAlt("1", e.target.value)}/>
                       </div>
                    </div>,
             children: []
@@ -491,6 +555,10 @@ const ColumnUpdatePage=()=>{
                               onChange={(e)=>getChildrenImage(`${node.key}-${node.children.length + 1}`, e.target.files[0])} 
                               />
                           </div>
+                          <div tw="flex flex-col items-start py-2">
+                            <label tw="font-bold mb-1">【画像説明(alt)】</label>
+                            <Input type="text" onChange={(e)=>changeChildAlt(`${node.key}-${node.children.length + 1}`, e.target.value)}/>
+                          </div>
                       </div>,
                 children: [],
               },
@@ -516,6 +584,7 @@ const ColumnUpdatePage=()=>{
       data = data.filter(item =>item.key !== key)
       setParentTitleValues(parentTitleValues.filter(item=>item.key !== key))
       setParentContentValues(parentContentValues.filter(item=>item.key !== key))
+      setParentAlt(parentAlt.filter(item=>item.key !== key))
       setParentImage(parentImage.filter(item=>item.key !== key))
       setParentImageName(parentImageName.filter(item=>item.key !== key))
     }else{
@@ -530,6 +599,7 @@ const ColumnUpdatePage=()=>{
           data[i].children=data[i].children.filter(child =>child.key !== key)
           setChildrenTitleValues(childrenTitleValues.filter(item=>item.key !== key))
           setChildrenContentValues(childrenContentValues.filter(item=>item.key !== key))
+          setChildAlt(childAlt.filter(item=>item.key !== key))
           setChildrenImage(childrenImage.filter(item=>item.key !== key))
           setChildrenImageName(childrenImageName.filter(item=>item.key !== key))
         }
@@ -610,6 +680,11 @@ const ColumnUpdatePage=()=>{
                   <span tw="mx-2">{currentThumnail}</span>
                 </div>
               )}
+          </div>
+          <div tw="flex flex-col items-start py-2">
+              <label tw="font-bold mb-1">【画像説明(alt)】<span tw="px-2 text-white rounded-md bg-red-500 text-sm">必須</span></label>
+              <Input type="text" value={alt} onChange={(e)=>setAlt(e.target.value)}/>
+              {validAlt!=="" && <p tw="text-red-500 text-sm">{validAlt}</p>}
           </div>
           <div tw="flex flex-col items-start py-2">
             <button tw='flex items-center text-sm text-white rounded-md bg-blue-700 mx-5 px-5 py-1 hover:bg-white hover:text-black hover:border' onClick={() => handleAddParent()}><IoAddCircleOutline tw="font-bold mr-2" />中見出し追加</button>

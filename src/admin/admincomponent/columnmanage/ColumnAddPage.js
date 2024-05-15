@@ -34,14 +34,15 @@ const ColumnAddPage=()=>{
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [thumbnail, setThumbnail] = useState();
+  const [alt, setAlt] = useState("");
   const [columnCategories, setColumnCategories] = useState();
   const [imagePreview, setImagePreview] = useState(null);
   const [parentImage, setParentImage] = useState([]);
   const [childrenImage, setChildrenImage] = useState([]);
   const [parentImageName, setParentImageName] = useState([]);
   const [childrenImageName, setChildrenImageName] = useState([]);
-  const [parentImagePreview, setParentImagePreview] = useState([]);
-  const [childImagePreview, setChildImagePreview] = useState([]);
+  const [parentAlt, setParentAlt] = useState([]);
+  const [childAlt, setChildAlt] = useState([]);
 
   const [parent, setParent]=useState("")
   
@@ -49,6 +50,7 @@ const ColumnAddPage=()=>{
   const [validDescription, setValidDescription] = useState("");
   const [validColumnCategory, setValidColumnCategory] = useState("");
   const [validThumbnail, setValidThumbnail] = useState("");
+  const [validAlt, setValidAlt] = useState("");
 
   const { allColumnCategoryList } = useSelector(state => state.columns);
 
@@ -185,13 +187,21 @@ const ColumnAddPage=()=>{
     }   
   }
 
+  const changeParentAlt = (key, value)=>{
+    if(value){
+      setParentAlt((previousData) => {
+        const data = previousData.filter(element => element.key != key);
+        return [...data, { key, value }];
+      })
+    }   
+  }
+
   const changeChildrenTitle = (key, value)=>{
     if(value){
       setChildrenTitleValues((previousData) => {
         const data = previousData.filter(element => element.key != key);
         return [...data, { key, value }];
       })
-      // setChildrenTitleValues([...childrenTitleValues, { key:key, value:value }])
     }
   }
   const changeChildrenContent = (key, value)=>{
@@ -200,8 +210,15 @@ const ColumnAddPage=()=>{
         const data = previousData.filter(element => element.key != key);
         return [...data, { key, value }];
       })
-      // setChildrenContentValues([...childrenContentValues, { key:key, value:value }])
     }
+  }
+  const changeChildAlt = (key, value)=>{
+    if(value){
+      setChildAlt((previousData) => {
+        const data = previousData.filter(element => element.key != key);
+        return [...data, { key, value }];
+      })
+    }   
   }
 
   const handleClickAddColumn =()=>{
@@ -225,10 +242,13 @@ const ColumnAddPage=()=>{
     }else{
       setValidThumbnail("")
     }
+    if(!alt){
+      setValidAlt("※この項目は必須入力項目です。")
+    }else{
+      setValidAlt("")
+    }
 
-    
-
-    if(title && description && columnCategories && thumbnail){
+    if(title && description && columnCategories && thumbnail && alt){
       const payload={
         title: title,
         description: description,
@@ -242,6 +262,9 @@ const ColumnAddPage=()=>{
         firstImageName: parentImageName.sort(function(a, b) {
           return a.key.localeCompare(b.key);
         }),
+        firstAlt: parentAlt.sort(function(a, b) {
+          return a.key.localeCompare(b.key);
+        }),
         secondTitleValues: childrenTitleValues.sort(function(a, b) {
           return a.key.localeCompare(b.key);
         }),
@@ -251,7 +274,11 @@ const ColumnAddPage=()=>{
         secondImageName: childrenImageName.sort(function(a, b) {
           return a.key.localeCompare(b.key);
         }),
-        thumbnail: thumbnail.name   
+        secondAlt: childAlt.sort(function(a, b) {
+          return a.key.localeCompare(b.key);
+        }),
+        thumbnail: thumbnail.name,
+        alt: alt
       }
       if(payload){
         dispatch(addColumn(payload)).then(()=>{
@@ -299,6 +326,10 @@ const ColumnAddPage=()=>{
                           onChange={(e)=>getParentImage((parseInt(treeData[treeData.length-1 ].key)+1).toString(), e.target.files[0])} 
                           />
                       </div>
+                      <div tw="flex flex-col items-start py-2">
+                        <label tw="font-bold mb-1">【画像説明(alt)】</label>
+                        <Input type="text" onChange={(e)=>changeParentAlt((parseInt(treeData[treeData.length-1 ].key)+1).toString(), e.target.value)} />
+                      </div>
                    </div>,
             children: []
           } 
@@ -325,6 +356,10 @@ const ColumnAddPage=()=>{
                           id="formFile"
                           onChange={(e)=>getParentImage("1", e.target.files[0])} 
                           />
+                      </div>
+                      <div tw="flex flex-col items-start py-2">
+                        <label tw="font-bold mb-1">【画像説明(alt)】</label>
+                        <Input type="text" onChange={(e)=>changeParentAlt("1", e.target.value)}/>
                       </div>
                    </div>,
             children: []
@@ -375,6 +410,10 @@ const ColumnAddPage=()=>{
                               onChange={(e)=>getChildrenImage(`${node.key}-${node.children.length + 1}`, e.target.files[0])} 
                               />
                           </div>
+                          <div tw="flex flex-col items-start py-2">
+                            <label tw="font-bold mb-1">【画像説明(alt)】</label>
+                            <Input type="text" onChange={(e)=>changeChildAlt(`${node.key}-${node.children.length + 1}`, e.target.value)}/>
+                          </div>
                       </div>,
                 children: [],
               },
@@ -400,6 +439,7 @@ const ColumnAddPage=()=>{
       data = data.filter(item =>item.key !== key)
       setParentTitleValues(parentTitleValues.filter(item=>item.key !== key))
       setParentContentValues(parentContentValues.filter(item=>item.key !== key))
+      setParentAlt(parentAlt.filter(item=>item.key !== key))
       setParentImage(parentImage.filter(item=>item.key !== key))
       setParentImageName(parentImageName.filter(item=>item.key !== key))
     }else{
@@ -414,6 +454,7 @@ const ColumnAddPage=()=>{
           data[i].children=data[i].children.filter(child =>child.key !== key)
           setChildrenTitleValues(childrenTitleValues.filter(item=>item.key !== key))
           setChildrenContentValues(childrenContentValues.filter(item=>item.key !== key))
+          setChildAlt(childAlt.filter(item=>item.key !== key))
           setChildrenImage(childrenImage.filter(item=>item.key !== key))
           setChildrenImageName(childrenImageName.filter(item=>item.key !== key))
         }
@@ -488,6 +529,11 @@ const ColumnAddPage=()=>{
                   <span tw="mx-2">{thumbnail.name}</span>
                 </div>
               )}
+          </div>
+          <div tw="flex flex-col items-start py-2">
+              <label tw="font-bold mb-1">【画像説明(alt)】<span tw="px-2 text-white rounded-md bg-red-500 text-sm">必須</span></label>
+              <Input type="text" value={alt} onChange={(e)=>setAlt(e.target.value)}/>
+              {validAlt!=="" && <p tw="text-red-500 text-sm">{validAlt}</p>}
           </div>
           <div tw="flex flex-col items-start py-2">
             <button tw='flex items-center text-sm text-white rounded-md bg-blue-700 mx-5 px-5 py-1 hover:bg-white hover:text-black hover:border' onClick={() => handleAddParent()}><IoAddCircleOutline tw="font-bold mr-2" />中見出し追加</button>

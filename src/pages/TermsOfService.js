@@ -15,13 +15,13 @@ const Heading = tw(SectionHeading)`text-gray-900 mb-10`;
 const Text = styled.div`
   ${tw`text-lg  text-gray-800`}
   p {
-    ${tw`mt-2 leading-loose`}
+    ${tw`mt-2 text-[12px] leading-loose`}
   }
   h1 {
     ${tw`text-3xl font-bold mt-10`}
   }
   h2 {
-    ${tw`text-2xl font-bold mt-8`}
+    ${tw`text-[20px] font-bold mt-8`}
   }
   h3 {
     ${tw`text-xl font-bold mt-6`}
@@ -29,7 +29,7 @@ const Text = styled.div`
   ul {
     ${tw`list-disc list-inside`}
     li {
-      ${tw`ml-2 mb-3`}
+      ${tw`text-[14px] ml-2 mb-3`}
       p {
         ${tw`mt-0 inline leading-normal`}
       }

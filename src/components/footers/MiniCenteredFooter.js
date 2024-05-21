@@ -41,7 +41,7 @@ export default () => {
           <LinksContainer>
             <Link href="/">Service</Link>
             <Link href="/tools">Webtool</Link>
-            <Link href="/column">Column</Link>
+            <Link href="">Column</Link>
             <Link href="/summary">Summary</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Use</Link>

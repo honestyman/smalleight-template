@@ -9,6 +9,7 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       "2xl": "1440px",
+      "3xl": "1920px"
     },
     colors: {
       transparent: 'transparent',
@@ -280,8 +281,8 @@ module.exports = {
         // '"Segoe UI Symbol"',
         // '"Noto Color Emoji"',
       ],
-      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+      // serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      // mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
     },
     fontSize: {
       xs: '0.75rem',

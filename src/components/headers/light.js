@@ -13,7 +13,7 @@ import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 
 const Header = tw.header`
   flex justify-between items-center
-  max-w-screen-xl px-5 mx-auto
+  max-w-screen-3xl 3xl:px-20 px-5 mx-auto
 `;
 
 export const NavLinks = tw.div`inline-block`;
@@ -72,13 +72,13 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    */
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/">
+      <NavLink href="/service">
         Service
       </NavLink>
       <NavLink href="/tools">
         Webtool
       </NavLink>
-      <NavLink href="/column">
+      <NavLink href="">
         Column
       </NavLink>
       <NavLink href="/summary">

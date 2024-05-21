@@ -13,11 +13,11 @@ import CustomersLogoStripImage from "../../images/customers-logo-strip.png";
 
 const Container = tw.div`relative px-10`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row justify-center items-center max-w-screen-xl mx-auto py-20`;
-const LeftColumn = tw.div`relative lg:w-5/12 text-center max-w-lg mx-auto lg:max-w-none lg:text-left`;
+const LeftColumn = tw.div`relative lg:w-8/12 text-center max-w-lg mx-auto lg:max-w-none lg:text-left`;
 const RightColumn = tw.div`relative mt-12 lg:mt-0 flex justify-center items-center lg:self-end`;
 
 const Heading = tw.h1`font-bold text-3xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 leading-tight`;
-const Paragraph = tw.p`my-5 lg:my-8 text-base xl:text-lg`;
+const Paragraph = tw.p`my-5 lg:my-8 md:text-[12px] text-sm lg:text-[12px]`;
 
 const Actions = styled.div`
   ${tw`relative max-w-md text-center mx-auto lg:mx-0`}
@@ -46,7 +46,7 @@ const CustomersLogoStrip = styled.div`
   }
 `;
 const Form = tw.div`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
-const Label = tw.label`text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
+const Label = tw.label`text-left text-sm md:text-[12px] lg:text-[12px] font-medium leading-relaxed text-secondary-100`
 const Input = tw.input`mb-3 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
 const ResultLabel = tw.label`md:text-left mt-10 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
 

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import TopRigthImage from "images/topright.png";
+import { MdKeyboardReturn } from "react-icons/md";
 
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
@@ -29,9 +30,9 @@ const Container = styled.div`
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
 
-const HeroContainer = tw.div`z-20 relative max-w-screen-xl mx-auto`;
+const HeroContainer = tw.div`z-20 relative max-w-screen-3xl 3xl:px-20 mx-auto`;
 const TwoColumn = tw.div`lg:pt-24 md:px-10 pt-10 flex justify-between items-center flex-col lg:flex-row`;
-const LeftColumn = tw.div`flex flex-col items-center lg:block lg:mb-24 mb-10 md:px-5`;
+const LeftColumn = tw.div`flex flex-col items-center lg:block lg:mb-24 mb-10 md:pl-5`;
 const RightColumn = tw.div`lg:h-[450px] h-[250px] w-full lg:w-1/2 mt-2 lg:mt-0`;
 
 const ConfettiDiv = tw.div`w-full h-full rounded-md`;
@@ -48,7 +49,7 @@ const Heading = styled.h1`
 `;
 
 const SlantedBackground = styled.span`
-  ${tw`relative text-gray-100 xl:text-5xl md:text-4xl text-3xl -mx-4 py-2`}
+  ${tw`relative text-gray-100 xl:text-5xl md:text-4xl text-3xl py-2`}
   &::before {
     content: "";
     ${tw`absolute inset-0 transform -skew-x-12 -z-10`}
@@ -77,13 +78,13 @@ export default () => {
   
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="/">
+      <NavLink href="/service">
         Service
       </NavLink>
       <NavLink href="/tools">
         Webtool
       </NavLink>
-      <NavLink href="/column">
+      <NavLink href="">
         Column
       </NavLink>
       <NavLink href="/summary">
@@ -113,14 +114,13 @@ export default () => {
           <LeftColumn>
             <Notification>The Buildup of Little Thing</Notification>
             <Heading>
-              <Typewriter
-                onInit={(typewriter) => {
-                    typewriter
-                        .typeString("小さなことの積み重ねで")
-                        .pauseFor(1000)
-                        .start();
-                }}
-              />
+              <div tw="flex justify-start items-center">
+                <span>
+                  小さなことの積み重ねで
+                </span>
+                <MdKeyboardReturn tw="text-gray-100 mt-10 ml-1"/>
+                {/* <img src={Enter}/> */}
+              </div>
               <br />
               <SlantedBackground>
                 <Typewriter

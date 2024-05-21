@@ -46,7 +46,7 @@ export default function App() {
           <Route path="/components/:type/:name" element={<ComponentRenderer />} />
           <Route path="/inquerythanks" element={<QueryThankYouPage />} />
           <Route path="/" element={<AgencyLandingPage />} /> 
-          <Route path="/:service" element={<AgencyLandingPage />} /> 
+          <Route path="/service" element={<AgencyLandingPage />} /> 
           <Route path="/tools" element={<WebTool />} /> 
           <Route path="tools/create-param" element={<CreateParameter />} /> 
           <Route path="tools/title-tag" element={<TitleTag />} /> 

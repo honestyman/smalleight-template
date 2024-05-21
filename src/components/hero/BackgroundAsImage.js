@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import TopRigthImage from "images/topright.png";
-import { MdKeyboardReturn } from "react-icons/md";
+import Enter from "images/enter.png";
 
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
@@ -30,8 +30,8 @@ const Container = styled.div`
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
 
-const HeroContainer = tw.div`z-20 relative max-w-screen-3xl 3xl:px-20 mx-auto`;
-const TwoColumn = tw.div`lg:pt-24 md:px-10 pt-10 flex justify-between items-center flex-col lg:flex-row`;
+const HeroContainer = tw.div`z-20 relative max-w-screen-3xl 2xl:px-20 mx-auto`;
+const TwoColumn = tw.div`max-w-screen-xl lg:pt-24 md:px-10 pt-10 flex justify-between items-center flex-col lg:flex-row mx-auto`;
 const LeftColumn = tw.div`flex flex-col items-center lg:block lg:mb-24 mb-10 md:pl-5`;
 const RightColumn = tw.div`lg:h-[450px] h-[250px] w-full lg:w-1/2 mt-2 lg:mt-0`;
 
@@ -114,12 +114,12 @@ export default () => {
           <LeftColumn>
             <Notification>The Buildup of Little Thing</Notification>
             <Heading>
-              <div tw="flex justify-start items-center">
+              <div tw="flex justify-start items-center mb-10">
                 <span>
                   小さなことの積み重ねで
                 </span>
-                <MdKeyboardReturn tw="text-gray-100 mt-10 ml-1"/>
-                {/* <img src={Enter}/> */}
+                {/* <MdKeyboardReturn tw="text-gray-100 mt-10 ml-1"/> */}
+                <img src={Enter} tw="w-[48px] mt-5 ml-1"/>
               </div>
               <br />
               <SlantedBackground>

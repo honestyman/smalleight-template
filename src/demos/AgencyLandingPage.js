@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import tw from "twin.macro"; //eslint-disable-line
 import { css } from "styled-components/macro"; //eslint-disable-line
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
@@ -21,11 +21,16 @@ import customerSupportIllustrationSrc from "images/customer-support-illustration
 
 export default () => {
   const param = useParams();
+  const location = useLocation();
+  const pathname = location.pathname;
   useEffect(() => {
-    if(param.service){
-      window.location="#service";
+    const serviceElement = document.getElementById("service");
+    if(pathname.includes("service")){
+      if (serviceElement) {
+        serviceElement.scrollIntoView({ behavior: "smooth" });
+      }
     }
-  }, [param]);
+  }, [pathname]);
 
   return (
     <AnimationRevealPage>

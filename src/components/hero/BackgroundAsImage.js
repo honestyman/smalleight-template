@@ -49,7 +49,7 @@ const Heading = styled.h1`
 `;
 
 const SlantedBackground = styled.span`
-  ${tw`relative text-gray-100 xl:text-5xl md:text-4xl text-3xl py-2`}
+  ${tw`relative text-gray-100 xl:text-5xl md:text-4xl text-3xl sm:-mt-10`}
   &::before {
     content: "";
     ${tw`absolute inset-0 transform -skew-x-12 -z-10`}
@@ -114,12 +114,12 @@ export default () => {
           <LeftColumn>
             <Notification>The Buildup of Little Thing</Notification>
             <Heading>
-              <div tw="flex justify-start items-center mb-10">
+              <div tw="flex justify-start items-center">
                 <span>
                   小さなことの積み重ねで
                 </span>
                 {/* <MdKeyboardReturn tw="text-gray-100 mt-10 ml-1"/> */}
-                <img src={Enter} tw="w-[48px] mt-5 ml-1"/>
+                <img src={Enter} tw="md:w-[48px] w-[30px] mt-5 ml-1"/>
               </div>
               <br />
               <SlantedBackground>

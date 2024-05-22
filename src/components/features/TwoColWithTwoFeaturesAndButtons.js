@@ -27,7 +27,7 @@ const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
-)`mt-4 font-black text-left sm:text-4xl lg:text-[36px] text-center md:text-left leading-tight`;
+)`mt-4 font-black text-left text-2xl md:text-[36px] text-center md:text-left leading-tight`;
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-[14px] font-medium leading-loose text-secondary-100`;
 
 const Features = tw.div`mt-8 max-w-sm mx-auto md:mx-0`;
@@ -46,12 +46,12 @@ export default ({
   subheading = "What is SmallEight？",
   heading = (
     <>
-      <p tw="text-primary-500">SmallEight</p>
-      <p>→小さい八</p>
-      <p>→小さなことから末広がり。</p>
+      <p tw="text-primary-500 text-[36px] mb-5">SmallEight</p>
+      <p tw="my-5">小さい八</p>
+      <p>小さなことから末広がり。</p>
     </>
   ),
-  description = "小さいことを積み重ねる事が、とんでもないところへ行くただひとつの道だと思っています。」これは、イチロー選手がメジャーリーグの年間安打記録を破ったときの記者会見で話された言葉です。地道に重ねる行動こそ「大きな力」に。SmallEightは地道な支援で末広がるサービスを提供していきたいと考えています。「SmallEight」→「スモール８」→「スモハチ」と覚えていただけると嬉しいです。",
+  description = "「小さいことを積み重ねる事が、とんでもないところへ行くただひとつの道だと思っています。」これは、イチロー選手がメジャーリーグの年間安打記録を破ったときの記者会見で話された言葉です。地道に重ねる行動こそ「大きな力」に。SmallEightは地道な支援で末広がるサービスを提供していきたいと考えています。「SmallEight」→「スモール８」→「スモハチ」と覚えていただけると嬉しいです。",
   primaryButtonText = "Summaryページへ",
   primaryButtonUrl = "/summary",
   features = null,

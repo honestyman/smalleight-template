@@ -97,7 +97,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   console.log("pathname", window.location.pathname);
   const defaultLogoLink = (
     <LogoLink href="/">
-      <img src={window.location.pathname=="/"?logo:logo1} alt="logo" />
+      <img src={(window.location.pathname=="/" || window.location.pathname=="/service")?logo:logo1} alt="logo" />
       SmallEight
     </LogoLink>
   );

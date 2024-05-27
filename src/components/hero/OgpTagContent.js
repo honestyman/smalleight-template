@@ -68,7 +68,6 @@ export default ({ roundedHeaderButton }) => {
     if(url !=""){
       try {
         const response = await axios.post(`${process.env.REACT_APP_API}/tools/fetch-ogp`, { url:url });
-        console.log(response.data);
         setOgpData(response.data);
         setError('');
       } catch (err) {

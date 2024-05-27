@@ -101,19 +101,32 @@ export default ({ roundedHeaderButton }) => {
           </LeftColumn>
           <RightColumn>
           {ogpData && (
-                <div tw="mt-10 md:mt-0">
+                <div tw="mt-10 md:mt-0 px-10">
                     <h2 tw="text-xl md:text-2xl font-bold">OGP Data</h2>
-                    <p><strong>Title:</strong> {ogpData.title}</p>
-                    <p><strong>Description:</strong> {ogpData.description}</p>
-                    {ogpData.image && <img src={ogpData.image} alt="OGP" style={{ maxWidth: '100%' }} />}
+                    <p tw="text-[12px]"><strong>Title:</strong> {ogpData.title}</p>
+                    <p tw="text-[12px]"><strong>Description:</strong> {ogpData.description}</p>
+                    
+                    {ogpData.image &&
+                      <div tw="w-full flex justify-center">
+                        <img src={ogpData.image} alt="OGP" style={{ maxWidth: '50%' }} />
+                      </div> 
+                    }
                     <h2 tw="text-xl md:text-2xl font-bold mt-10">Twitter Card Data</h2>
-                    <p><strong>Title:</strong> {ogpData.twitterTitle}</p>
-                    <p><strong>Description:</strong> {ogpData.twitterDescription}</p>
-                    {ogpData.twitterImage && <img src={ogpData.twitterImage} alt="Twitter" style={{ maxWidth: '100%' }} />}
+                    <p tw="text-[12px]"><strong>Title:</strong> {ogpData.twitterTitle}</p>
+                    <p tw="text-[12px]"><strong>Description:</strong> {ogpData.twitterDescription}</p>
+                    {ogpData.twitterImage &&
+                      <div tw="w-full flex justify-center">
+                        <img src={ogpData.twitterImage} alt="Twitter" style={{ maxWidth: '50%' }} />
+                      </div> 
+                    }
                     <h2 tw="text-xl md:text-2xl font-bold mt-10">LINE Data</h2>
-                    <p><strong>Title:</strong> {ogpData.lineTitle}</p>
-                    <p><strong>Description:</strong> {ogpData.lineDescription}</p>
-                    {ogpData.lineImage && <img src={ogpData.lineImage} alt="LINE" style={{ maxWidth: '100%' }} />}
+                    <p tw="text-[12px]"><strong>Title:</strong> {ogpData.lineTitle}</p>
+                    <p tw="text-[12px]"><strong>Description:</strong> {ogpData.lineDescription}</p>
+                    {ogpData.lineImage &&
+                      <div tw="w-full flex justify-center">
+                        <img src={ogpData.lineImage} alt="LINE" style={{ maxWidth: '50%' }} />
+                      </div> 
+                    }
                 </div>
             )}
           </RightColumn>

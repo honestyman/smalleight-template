@@ -75,7 +75,7 @@ export default () => {
       title: "OGPタグ確認",
       description: "SNS上でWEBページのタイトル、 イメージ画像、 URL含めた詳細、 説明文などの情報を表示するためのタグを確認できます。" ,
       primaryButtonText:"ツールへ",
-      link: "/tools"
+      link: "/tools/ogp-tag"
     },
     { 
       title: "構造化データ生成",

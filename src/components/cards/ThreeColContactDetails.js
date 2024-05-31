@@ -15,7 +15,7 @@ const ThreeColumnContainer = styled.div`
 `;
 const Subheading = tw(SubheadingBase)`mb-4`;
 const Heading = tw(SectionHeading)`w-full text-primary-500`;
-const Description = tw(SectionDescription)`w-full text-center`;
+const Description = tw(SectionDescription)`w-full text-center text-[12px]`;
 
 const VerticalSpacer = tw.div`mt-10 w-full`
 

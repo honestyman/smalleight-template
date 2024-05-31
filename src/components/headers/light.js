@@ -6,8 +6,8 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
-import logo from "../../images/logo.png";
-import logo1 from "../../images/logo-full.png";
+// import logo from "../../images/logo.png";
+import logo from "../../images/logo-full.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 
@@ -66,9 +66,9 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
       <NavLink href="/tools">
         Webtool
       </NavLink>
-      <NavLink href="">
+      {/* <NavLink href="">
         Column
-      </NavLink>
+      </NavLink> */}
       <NavLink href="/summary">
         Summary
       </NavLink>
@@ -85,7 +85,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   console.log("pathname", window.location.pathname);
   const defaultLogoLink = (
     <LogoLink href="/">
-      <img src={(window.location.pathname=="/" || window.location.pathname=="/service")?logo:logo1} alt="logo" />
+      <img src={logo} alt="logo" />
       SmallEight
     </LogoLink>
   );

@@ -9,7 +9,7 @@ import TeamIllustrationSrc from "../../images/bee.png";
 
 import 'animate.css';
 
-const Container = tw.div`w-full relative bg-white`;
+const Container = tw.div`w-full relative bg-[#F4F8F9]`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;

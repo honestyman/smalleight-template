@@ -18,7 +18,7 @@ import FastIconImage from "../../images/lp.png";
 import ReliableIconImage from "../../images/analysis.png";
 import SimpleIconImage from "../../images/seo.png";
 
-const Container = tw.div`relative bg-[#F4F8F9]`;
+const Container = tw.div`relative bg-white`;
 
 const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-xl mx-auto py-20 md:py-24`}

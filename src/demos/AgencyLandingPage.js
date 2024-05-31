@@ -13,7 +13,7 @@ import Portfolio from "components/cards/PortfolioTwoCardsWithImage.js";
 // import Blog from "components/blogs/ThreeColSimpleWithImageAndDashedBorder.js";
 import BlogColumn from "components/blogs/PopularAndRecentBlogPosts.js";
 
-import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePictureReview.js";
+import Header from "components/headers/light.js";
 import FAQ from "components/faqs/SimpleWithSideImage.js";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
@@ -35,7 +35,6 @@ export default () => {
   return (
     <AnimationRevealPage>
       <Hero />
-      {/* <MainFeature /> */}
       <MainFeature2 />
       <div id="service">
         <Features />

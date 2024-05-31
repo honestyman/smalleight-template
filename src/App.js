@@ -52,8 +52,8 @@ export default function App() {
           <Route path="tools/create-param" element={<CreateParameter />} /> 
           <Route path="tools/title-tag" element={<TitleTag />} /> 
           <Route path="tools/ogp-tag" element={<OgpTag />} /> 
-          <Route path="/column" element={<ColumnPage />} /> 
-          <Route path='/columndetail/:id' element={<ColumnDetailPage/>}/>
+          {/* <Route path="/column" element={<ColumnPage />} /> 
+          <Route path='/columndetail/:id' element={<ColumnDetailPage/>}/> */}
           <Route path="/summary" element={<SummaryPage />} /> 
           <Route path="/privacy" element={<PrivacyPolicy />} /> 
           <Route path="/terms" element={<TermsOfService />} /> 

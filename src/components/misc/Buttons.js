@@ -50,32 +50,8 @@ export const ConfettiButton = () => {
     })
 	}
 
-	useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('wow', 'animate__animated', 'animate__heartBeat');
-        } else {
-          entry.target.classList.remove('wow', 'animate__animated', 'animate__heartBeat');
-        }
-      });
-    });
-
-    observer.observe(ref.current);
-
-    const interval = setInterval(() => {
-      const element = ref.current;
-      if (element) {
-        element.classList.add('wow', 'animate__animated', 'animate__heartBeat');
-        setTimeout(() => {
-          element.classList.remove('wow', 'animate__animated', 'animate__heartBeat');
-        }, 1000);
-      }
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 	return (
-		<div ref={ref}>
+		<div>
 			<Confetti onClick={handleClick}><IoMdHeart tw="mx-10"/>{likeCount}</Confetti>
 		</div>
 	);

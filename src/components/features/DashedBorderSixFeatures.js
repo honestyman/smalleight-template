@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
@@ -17,6 +17,7 @@ import CustomizeIconImage from "../../images/customize-icon.svg";
 import FastIconImage from "../../images/lp.png";
 import ReliableIconImage from "../../images/analysis.png";
 import SimpleIconImage from "../../images/seo.png";
+import { HoverButton } from "components/misc/HoverButtons";
 
 const Container = tw.div`relative bg-white`;
 
@@ -116,11 +117,13 @@ export default () => {
                   {card.description || "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud. Sic Semper Tyrannis. Neoas Calie artel."}
                 </p>
               </span>
-              {
+              {/* {
               card.link && <Link to={card.link} className="linkBtn">
-                <PrimaryButton>
-                  {card.primaryButtonText}
-                </PrimaryButton></Link>
+                {card.primaryButtonText}
+              </Link>
+              } */}
+              {
+                card.link && <HoverButton text={card.primaryButtonText} link={card.link}/>
               }
             </Card>
           </Column>

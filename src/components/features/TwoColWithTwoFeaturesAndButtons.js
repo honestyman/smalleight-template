@@ -8,6 +8,7 @@ import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import TeamIllustrationSrc from "../../images/bee.png";
 
 import 'animate.css';
+import { HoverButton } from "components/misc/HoverButtons";
 
 const Container = tw.div`w-full relative bg-[#F4F8F9]`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -57,8 +58,8 @@ export default ({
   features = null,
   textOnLeft = true
 }) => {
-
-
+  const [hover, setHover] = useState(false);
+ 
   return (
     <Container>
       <TwoColumn>
@@ -80,9 +81,22 @@ export default ({
             <Subheading>{subheading}</Subheading>
             <Heading>{heading}</Heading>
             <Description>{description}</Description>
-            <PrimaryButton as="a" href={primaryButtonUrl}>
+            {/* <PrimaryButton as="a" href={primaryButtonUrl}>
               {primaryButtonText}
-            </PrimaryButton>
+            </PrimaryButton> */}
+            <div style={{ padding: '20px' }}>
+              <a href={primaryButtonUrl}>
+                <div 
+                  className="button"
+                  onMouseEnter={() => setHover(true)}
+                  onMouseLeave={() => setHover(false)}
+                >
+                  <span className={hover ? 'span1 up' : 'span1_summary'}>Summaryページへ</span>
+                  <span className={hover ? 'span2_center down' : 'span2'}>Let's go</span>
+                </div>
+              </a>
+            </div>
+            {/* <HoverButton text="Summaryページへ" link={primaryButtonUrl} /> */}
           </TextContent>
         </TextColumn>
       </TwoColumn>

@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState} from "react";
 import { useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import tw from "twin.macro"; //eslint-disable-line
@@ -18,6 +18,8 @@ import FAQ from "components/faqs/SimpleWithSideImage.js";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
+import SplashScreen from "pages/SplashScreen";
+import splashlogo from "../images/splash_logo.png";
 
 export default () => {
   const param = useParams();
@@ -31,18 +33,31 @@ export default () => {
       }
     }
   }, [pathname]);
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleSplashFinish = () => {
+    setShowSplash(false);
+  };
 
   return (
-    <AnimationRevealPage>
-      <Hero />
-      <MainFeature2 />
-      <div id="service">
-        <Features />
-      </div>
-      {/* <BlogColumn /> */}
-      {/* <ContactUsForm /> */}
-      <Footer />
-    </AnimationRevealPage>
+    <>   
+      { 
+        showSplash && <SplashScreen logo={splashlogo} onFinish={handleSplashFinish}/>
+      }
+      {
+        !showSplash && <AnimationRevealPage>
+            <Hero />
+            <MainFeature2 />
+            <div id="service">
+              <Features />
+            </div>
+            {/* <BlogColumn /> */}
+            {/* <ContactUsForm /> */}
+            <Footer />
+        </AnimationRevealPage>
+      }
+      
+    </>
   );
 
 }

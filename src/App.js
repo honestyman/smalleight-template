@@ -32,6 +32,7 @@ import ColumnManageDetail from "admin/admincomponent/columnmanage/ColumnManageDe
 import ColumnUpdatePage from "admin/admincomponent/columnmanage/ColumnUpdatePage";
 import TitleTag from "pages/TitleTag";
 import OgpTag from "pages/OgpTag";
+import AgencyLandingPageService from "demos/AgencyLandingPageService";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -47,7 +48,7 @@ export default function App() {
           <Route path="/components/:type/:name" element={<ComponentRenderer />} />
           <Route path="/inquerythanks" element={<QueryThankYouPage />} />
           <Route path="/" element={<AgencyLandingPage />} /> 
-          <Route path="/service" element={<AgencyLandingPage />} /> 
+          <Route path="/service" element={<AgencyLandingPageService />} /> 
           <Route path="/tools" element={<WebTool />} /> 
           <Route path="tools/create-param" element={<CreateParameter />} /> 
           <Route path="tools/title-tag" element={<TitleTag />} /> 

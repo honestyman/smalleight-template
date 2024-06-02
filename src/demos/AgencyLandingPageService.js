@@ -18,8 +18,6 @@ import FAQ from "components/faqs/SimpleWithSideImage.js";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
-import SplashScreen from "pages/SplashScreen";
-import splashlogo from "../images/splash_logo.png";
 
 export default () => {
   const param = useParams();
@@ -40,22 +38,16 @@ export default () => {
   };
 
   return (
-    <>   
-      { 
-        showSplash && <SplashScreen logo={splashlogo} onFinish={handleSplashFinish}/>
-      }
-      {
-        !showSplash && <AnimationRevealPage>
-            <Hero />
-            <MainFeature2 />
-            <Features />
-            {/* <BlogColumn /> */}
-            {/* <ContactUsForm /> */}
-            <Footer />
-        </AnimationRevealPage>
-      }
-      
-    </>
+    <AnimationRevealPage>
+        <Hero />
+        <MainFeature2 />
+        <div id="service">
+          <Features />
+        </div>
+        {/* <BlogColumn /> */}
+        {/* <ContactUsForm /> */}
+        <Footer />
+    </AnimationRevealPage>    
   );
 
 }

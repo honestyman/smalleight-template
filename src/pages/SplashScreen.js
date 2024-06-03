@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const SplashScreen = ({ logo, onFinish }) => {
   useEffect(() => {
-    const timer = setTimeout(onFinish, 5000); // Adjust time to match the CSS animation delays and durations
+    const timer = setTimeout(onFinish, 4000); // Adjust time to match the CSS animation delays and durations
     return () => clearTimeout(timer);
   }, [onFinish]);
 

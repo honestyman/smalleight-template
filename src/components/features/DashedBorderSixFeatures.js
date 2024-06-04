@@ -24,7 +24,7 @@ const Container = tw.div`relative bg-white`;
 const ThreeColumnContainer = styled.div`
   ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-xl mx-auto py-20 md:py-24`}
 `;
-const Heading = tw(SectionHeading)`w-full`;
+const Heading = tw(SectionHeading)`w-full md:text-[36px] text-2xl text-black`;
 
 const Column = styled.div`
   ${tw`md:w-1/2 lg:w-1/3 px-6 flex`}
@@ -48,7 +48,7 @@ const Card = styled.div`
   }
 
   .description {
-    ${tw`mt-3 font-semibold text-secondary-100 text-sm leading-loose`}
+    ${tw`mt-3 font-semibold text-black text-sm leading-loose`}
   }
 `;
 

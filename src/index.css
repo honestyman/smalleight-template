@@ -63,7 +63,7 @@
 
 .button .span1 {
   position: absolute;
-  left: 30%;
+  left: 35%;
   bottom: 50%;
   transform: translate(0%, 50%);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -87,7 +87,7 @@
 
 .button .span2_center {
   position: absolute;
-  left: 30%;
+  left: 35%;
 }
 
 

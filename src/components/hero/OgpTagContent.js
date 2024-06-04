@@ -20,7 +20,7 @@ const TwoColumn = tw.div`flex flex-col lg:flex-row max-w-screen-xl mx-auto py-20
 const LeftColumn = tw.div`relative lg:w-5/12 text-center max-w-lg mx-auto lg:max-w-none lg:text-left`;
 const RightColumn = tw.div`relative lg:w-7/12 lg:mt-0 flex-1 flex flex-col`;
 
-const Heading = tw.h1`font-bold text-3xl md:text-3xl flex items-center lg:text-4xl xl:text-5xl text-gray-900 leading-tight`;
+const Heading = tw.h1`font-bold text-2xl md:text-3xl flex items-center lg:text-3xl xl:text-3xl text-gray-900 leading-tight`;
 const Paragraph = tw.p`my-5 lg:my-8 md:text-[12px] text-sm lg:text-[12px]`;
 
 const Actions = styled.div`
@@ -87,7 +87,7 @@ export default ({ roundedHeaderButton }) => {
         <TwoColumn>
           <LeftColumn>
             <Heading>
-              <span tw="text-6xl text-primary-500 mr-3"><IoShareSocialOutline/></span>OGPタグ確認
+              <span tw="text-4xl text-primary-500 mr-3"><IoShareSocialOutline/></span>OGPタグ確認
             </Heading>
             <Paragraph>
             facebook twitter LINEでページをシェアした際のOGP画像・タイトル・説明文を確認できます。
@@ -108,7 +108,7 @@ export default ({ roundedHeaderButton }) => {
                     
                     {ogpData.image &&
                       <div tw="w-full flex justify-center">
-                        <img src={ogpData.image} alt="OGP" style={{ maxWidth: '50%' }} />
+                        <img src={ogpData.image} alt="OGP" style={{ maxWidth: '60%' }} />
                       </div> 
                     }
                     <h2 tw="text-xl md:text-2xl font-bold mt-10">Twitter Card Data</h2>
@@ -116,7 +116,7 @@ export default ({ roundedHeaderButton }) => {
                     <p tw="text-[12px]"><strong>Description:</strong> {ogpData.twitterDescription}</p>
                     {ogpData.twitterImage &&
                       <div tw="w-full flex justify-center">
-                        <img src={ogpData.twitterImage} alt="Twitter" style={{ maxWidth: '50%' }} />
+                        <img src={ogpData.twitterImage} alt="Twitter" style={{ maxWidth: '60%' }} />
                       </div> 
                     }
                     <h2 tw="text-xl md:text-2xl font-bold mt-10">LINE Data</h2>
@@ -124,7 +124,7 @@ export default ({ roundedHeaderButton }) => {
                     <p tw="text-[12px]"><strong>Description:</strong> {ogpData.lineDescription}</p>
                     {ogpData.lineImage &&
                       <div tw="w-full flex justify-center">
-                        <img src={ogpData.lineImage} alt="LINE" style={{ maxWidth: '50%' }} />
+                        <img src={ogpData.lineImage} alt="LINE" style={{ maxWidth: '60%' }} />
                       </div> 
                     }
                 </div>

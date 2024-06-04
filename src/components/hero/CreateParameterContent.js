@@ -16,7 +16,7 @@ const TwoColumn = tw.div`flex flex-col lg:flex-row justify-center items-center m
 const LeftColumn = tw.div`relative lg:w-8/12 text-center max-w-lg mx-auto lg:max-w-none lg:text-left`;
 const RightColumn = tw.div`relative mt-12 lg:mt-0 flex justify-center items-center lg:self-end`;
 
-const Heading = tw.h1`font-bold text-3xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-900 leading-tight`;
+const Heading = tw.h1`font-bold text-2xl md:text-3xl lg:text-3xl xl:text-3xl text-gray-900 leading-tight`;
 const Paragraph = tw.p`my-5 lg:my-8 md:text-[12px] text-sm lg:text-[12px]`;
 
 const Actions = styled.div`

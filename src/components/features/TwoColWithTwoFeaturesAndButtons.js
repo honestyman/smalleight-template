@@ -47,7 +47,7 @@ export default ({
   subheading = "What is SmallEight？",
   heading = (
     <>
-      <p tw="text-primary-500 text-[36px] mb-5">SmallEight</p>
+      <p tw="text-primary-500 text-2xl md:text-[36px] mb-5">SmallEight</p>
       <p tw="my-5">小さい八</p>
       <p>小さなことから末広がり。</p>
     </>

@@ -19,7 +19,7 @@ const TwoColumn = tw.div`flex flex-col lg:flex-row max-w-screen-xl mx-auto py-20
 const LeftColumn = tw.div`relative lg:w-5/12 text-center max-w-lg mx-auto lg:max-w-none lg:text-left`;
 const RightColumn = tw.div`relative lg:w-7/12 lg:mt-0 flex-1 flex flex-col`;
 
-const Heading = tw.h1`font-bold text-3xl md:text-3xl flex items-center lg:text-4xl xl:text-5xl text-gray-900 leading-tight`;
+const Heading = tw.h1`font-bold text-2xl md:text-3xl flex items-center text-gray-900 leading-tight`;
 const Paragraph = tw.p`my-5 lg:my-8 md:text-[12px] text-sm lg:text-[12px]`;
 
 const Actions = styled.div`
@@ -53,7 +53,7 @@ const CustomersLogoStrip = styled.div`
 const Form = tw.div`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
 const Label = tw.label`text-left text-sm md:text-[12px] lg:text-[12px] font-medium leading-relaxed text-secondary-100`
 const Input = tw.input`mb-3 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
-const ResultLabel = tw.label`md:text-left md:text-4xl font-medium leading-relaxed text-center`
+const ResultLabel = tw.label`md:text-left text-2xl font-medium leading-relaxed text-center`
 
 
 const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block mx-auto md:mx-0`;
@@ -119,7 +119,7 @@ export default ({ roundedHeaderButton }) => {
         <TwoColumn>
           <LeftColumn>
             <Heading>
-              <span tw="text-6xl text-primary-500 mr-3"><IoMdCode/></span>見出し(hタグ)確認
+              <span tw="text-4xl text-primary-500 mr-3"><IoMdCode/></span>見出し(hタグ)確認
             </Heading>
             <Paragraph>
             下記に該当のURLを入れるだけで見出し、タイトル、ページ文字数を確認できます。

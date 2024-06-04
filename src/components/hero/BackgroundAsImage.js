@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCounts } from "../../redux/slice/clientSlice.js";
 import Mountain from "../../images/mountain.png";
+import DotbackgroundImage from "../../images/dotback.png";
 
 
 const StyledHeader = styled(Header)`
@@ -24,29 +25,33 @@ const StyledHeader = styled(Header)`
     ${tw`hover:text-primary-500`}
   }
 `;
-const Container = styled.div`
-  ${tw`relative -mx-8 -mt-8 bg-center bg-cover xl:min-h-screen`}
-  `;
+// const Container = styled.div`
+//   ${tw`relative -mx-8 -mt-8 bg-center bg-cover xl:min-h-screen`}
+//   `;
+const Container = styled.div(props => [
+  `background-image: url("${DotbackgroundImage}");`,
+  tw`relative -mx-8 -mt-8 bg-center bg-cover xl:min-h-screen`,
+]);
 
 const HeroContainer = tw.div`z-20 relative max-w-screen-3xl 2xl:px-20 mx-auto`;
 const TwoColumn = tw.div`max-w-screen-xl lg:pt-24 md:px-10 pt-10 flex justify-between items-center flex-col mx-auto`;
 const RightColumn = tw.div`md:h-[250px] h-[200px] w-full mt-2 lg:mt-0`;
 
 const ConfettiDiv = tw.div`w-full h-full flex justify-center flex-col justify-center items-center rounded-md pt-10`;
-const Image = styled.div(props => [
-  `background-image: url("${props.imageSrc}");`,
-  tw`flex flex-col items-center justify-center rounded bg-cover bg-no-repeat bg-center w-full h-full xl:h-full md:h-[80%]`,
-]);
+// const Image = styled.div(props => [
+//   `background-image: url("${props.imageSrc}");`,
+//   tw`flex flex-col items-center justify-center rounded bg-cover bg-no-repeat bg-center w-full h-full xl:h-full md:h-[80%]`,
+// ]);
 
 const Heading = styled.h1`
-  ${tw`text-center lg:text-center xl:text-6xl md:text-4xl text-3xl font-black lg:py-20 text-gray-100`}
+  ${tw`text-center lg:text-center xl:text-[80px] md:text-6xl text-3xl font-medium lg:py-20 text-gray-100`}
   span {
-    ${tw`inline-block mt-2`}
+    ${tw`inline-block mt-2 mb-10`}
   }
 `;
 
 const SlantedBackground = styled.span`
-  ${tw`relative text-black xl:text-6xl md:text-4xl text-3xl`}`;
+  ${tw`relative text-black xl:text-[80px] md:text-6xl text-3xl`}`;
 
 const Notification = tw.span`inline-block my-4 pl-3 py-1 text-gray-100 border-l-4 border-blue-500 font-medium text-sm`;
 
@@ -105,19 +110,18 @@ export default () => {
                 {/* <MdKeyboardReturn tw="text-gray-100 mt-10 ml-1"/> */}
                 {/* <img src={Enter} tw="md:w-[48px] w-[30px] mt-5 ml-1"/> */}
               </div>
-              <br />
               <SlantedBackground style={{letterSpacing:"0.1em"}}>
                 <Typewriter
                   onInit={(typewriter) => {
                       typewriter
                           .pauseFor(2000)
-                          .typeString("大きく変わる")
+                          .typeString("山となる")
                           .pauseFor(1000)
                           .deleteAll()
                           .typeString("違いを作る")
                           .pauseFor(1000)
                           .deleteAll()
-                          .typeString("山となる")
+                          .typeString("大きく変わる")
                           .start();
                   }}
                 />

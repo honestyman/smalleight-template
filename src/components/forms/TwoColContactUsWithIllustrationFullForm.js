@@ -101,6 +101,13 @@ const clickQueryHandler = async () => {
   }
 
   if(flag == true){
+    const payload={
+      kind:queryKind,
+      name:clientName,
+      companyName:clientCompanyName,
+      email:clientEmail,
+      questionContent:questionContent
+    }
     const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {
@@ -126,7 +133,9 @@ const clickQueryHandler = async () => {
     })
 
     if(res.status == 200){
-      navigate("/inquerythanks");
+      dispatch(postQuery(payload)).then(()=>{
+        navigate("/inquerythanks");
+      });
     }
   }
   }

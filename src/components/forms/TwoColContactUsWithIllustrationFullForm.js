@@ -89,7 +89,11 @@ const clickQueryHandler = async () => {
     if(!emailRegex.test(clientEmail)){
       setValidClientEmail("正確なメール形式ではありません。")
       flag=false;
-    }else{
+    }
+    if(clientEmail.includes("gmail.com") || clientEmail.includes("yahoo")){
+      setValidClientEmail("ビジネス用のメールアドレスをご入力ください。")
+    }
+    else{
       setValidClientEmail("");
     }
   }

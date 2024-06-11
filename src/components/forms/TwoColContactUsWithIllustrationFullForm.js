@@ -92,6 +92,7 @@ const clickQueryHandler = async () => {
     }
     if(clientEmail.includes("gmail.com") || clientEmail.includes("yahoo")){
       setValidClientEmail("ビジネス用のメールアドレスをご入力ください。")
+      flag=false;
     }
     else{
       setValidClientEmail("");

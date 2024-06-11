@@ -61,7 +61,7 @@ export default ({
   const [validClientEmail, setValidClientEmail] = useState("");
   const [validQuestionContent, setValidQuestionContent] = useState("");
 
-const clickQueryHandler =()=>{
+const clickQueryHandler = async () => {
   var flag=true;
   let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
   if(queryKind == ""){
@@ -101,16 +101,33 @@ const clickQueryHandler =()=>{
   }
 
   if(flag == true){
-    const payload={
-      kind:queryKind,
-      name:clientName,
-      companyName:clientCompanyName,
-      email:clientEmail,
-      questionContent:questionContent
-    }
-    dispatch(postQuery(payload)).then(()=>{
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+
+      body: JSON.stringify({
+        apikey: "0cd49013-33db-494a-ae35-78574c3af2be",
+        subject: "SmallEight",
+        Content: 
+          `- お問い合わせ種類:\n
+            ${queryKind}\n 
+              - 会社名: \n
+            ${clientCompanyName}\n
+            - お名前: \n
+            ${clientName}\n
+            - メールアドレス: \n
+            ${clientEmail}\n
+            - 問い合わせ内容: \n
+            ${questionContent}`
+      }),
+    })
+
+    if(res.status == 200){
       navigate("/inquerythanks");
-    });
+    }
   }
   }
 

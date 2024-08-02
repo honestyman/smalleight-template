@@ -33,6 +33,7 @@ import ColumnUpdatePage from "admin/admincomponent/columnmanage/ColumnUpdatePage
 import TitleTag from "pages/TitleTag";
 import OgpTag from "pages/OgpTag";
 import AgencyLandingPageService from "demos/AgencyLandingPageService";
+import SchmaMarkupGenerater from "pages/SchmaMarkupGenerater";
 
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="tools/create-param" element={<CreateParameter />} /> 
           <Route path="tools/title-tag" element={<TitleTag />} /> 
           <Route path="tools/ogp-tag" element={<OgpTag />} /> 
+          <Route path="tools/markupgenerater" element={<SchmaMarkupGenerater />} /> 
           {/* <Route path="/column" element={<ColumnPage />} /> 
           <Route path='/columndetail/:id' element={<ColumnDetailPage/>}/> */}
           <Route path="/summary" element={<SummaryPage />} /> 

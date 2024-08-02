@@ -81,7 +81,7 @@ export default () => {
       title: "構造化データ生成",
       description: "JSON-LDマークアップの作成をサポートする Schema.org 構造化データを生成できます。" ,
       primaryButtonText:"ツールへ",
-      link: "/tools"
+      link: "/tools/markupgenerater"
      }
   ];
 

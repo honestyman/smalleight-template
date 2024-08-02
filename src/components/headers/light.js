@@ -82,7 +82,6 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
 
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
   const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
-  console.log("pathname", window.location.pathname);
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
